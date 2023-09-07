@@ -1,10 +1,10 @@
 import React from "react";
-import CategoryMenu from "../components/CategoryMenu";
 
 const Home = () => {
   return (
     <div className="container">
-      <CategoryMenu />
+      <h1>Welcome to Deco!</h1>
+      <p>Take our quiz to learn about your art preferences.</p>
     </div>
   );
 };
