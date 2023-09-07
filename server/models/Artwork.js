@@ -21,4 +21,8 @@ const artworkSchema = new Schema({
       ref: 'Category',
       required: true
     }
-  })
+  });
+
+  const Artwork = mongoose.model('Artwork', artworkSchema);
+
+module.exports = Artwork;
