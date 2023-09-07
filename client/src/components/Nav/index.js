@@ -29,6 +29,16 @@ function Nav() {
               Login
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/quiz">
+              Find Your Style
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/browse">
+              Browse Art
+            </Link>
+          </li>
         </ul>
       );
     }
