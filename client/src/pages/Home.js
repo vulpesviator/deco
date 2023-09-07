@@ -1,14 +1,10 @@
 import React from "react";
-import ProductList from "../components/ProductList";
-import CategoryMenu from "../components/CategoryMenu";
-import Cart from "../components/Cart";
 
 const Home = () => {
   return (
     <div className="container">
-      <CategoryMenu />
-      <ProductList />
-      <Cart />
+      <h1>Welcome to Deco!</h1>
+      <p>Take our quiz to learn about your art preferences.</p>
     </div>
   );
 };
