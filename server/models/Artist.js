@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const categorySchema = new Schema({
-  categoryId: {
+const artistSchema = new Schema({
+  artistId: {
     type: mongoose.Types.ObjectId,
     default: new mongoose.Types.ObjectId
   },
@@ -12,21 +12,19 @@ const categorySchema = new Schema({
     required: true,
     trim: true
   },
-  artworks: [
+  artworks: [{
+    type: String,
+    // getArtist util?
+  }],
+  categories: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Artwork'
-    }
-  ],
-  artists: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Artist'
+      ref: 'Category',
+      required: true
     }
   ]
-  // sub cats?
 });
 
-const Category = mongoose.model('Category', categorySchema);
+const Artist = mongoose.model('Artist', artistSchema);
 
-module.exports = Category;
+module.exports = Artist;
