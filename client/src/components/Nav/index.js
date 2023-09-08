@@ -1,61 +1,71 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { Button, Menu, Dropdown } from "semantic-ui-react";
 
 function Nav() {
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        <Menu.Menu position="right">
+          <Menu.Item onClick={() => Auth.logout()}>
+            Logout
+          </Menu.Item>
+        </Menu.Menu>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-          <li className="mx-1">
+        <Menu.Menu position="right">
+          <Menu.Item>
             <Link to="/quiz">
               Find Your Style
             </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/browse">
-              Browse Art
+          </Menu.Item>
+          <Menu.Item>
+          <Dropdown text="Browse Art">
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to="/browse">
+                  All Art
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to="#">
+                  Post-modernism
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to="#">
+                  Surrealism
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/signup">
+              Signup
             </Link>
-          </li>
-        </ul>
+          </Menu.Item>
+          <Menu.Item>
+            <Button className="primary" to="/test">
+              Log In
+            </Button>
+          </Menu.Item>
+          <Menu.Item>
+            <Button className="secondary text-dark" to="/test">
+              Take the Test
+            </Button>
+          </Menu.Item>
+        </Menu.Menu>
       );
     }
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
+    <Menu secondary>
+      <Menu.Item>
         <Link to="/">
           Deco
         </Link>
-      </h1>
-
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
+      </Menu.Item>
+      {showNavigation()}
+    </Menu>
   );
 }
 
