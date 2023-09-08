@@ -3,4 +3,5 @@
 *******************************/
 
 @defaultBorderRadius: 3rem;
-@background: @primaryColor;
+@boxShadow: @secondaryShadow;
+/* @background: @primaryColor; */
