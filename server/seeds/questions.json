@@ -1,0 +1,28 @@
+
+[
+    {
+
+       "text":  "Which image do you prefer?",
+       "answers": []
+    },
+    {
+ 
+        "text": "Which image would look great in your office?",
+        "answers": []
+    },
+    {
+    
+       "text":  "Which image do you gravitate towards?",
+       "answers": []
+    },
+    {
+        "text": "which image inspires you?",
+       "answers": []
+    },
+    {
+
+        "text": "which image do you think is the most beautiful?",
+       "answers": []
+    }
+
+]

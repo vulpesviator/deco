@@ -1,6 +1,8 @@
 import React from "react";
 
-const Profile = () => {
+import UserProfile from '../components/UserProfile'
+
+const ProfilePage = () => {
   return (
     <div className="container">
       <UserProfile />
@@ -8,4 +10,5 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+
+export default ProfilePage;
