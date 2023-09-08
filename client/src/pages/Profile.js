@@ -1,4 +1,5 @@
 import React from "react";
+
 import UserProfile from '../components/UserProfile'
 
 const ProfilePage = () => {
@@ -8,5 +9,6 @@ const ProfilePage = () => {
     </div>
   );
 };
+
 
 export default ProfilePage;

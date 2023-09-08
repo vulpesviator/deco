@@ -1,0 +1,6 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+@defaultBorderRadius: 3rem;
+@background: @primaryColor;
