@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const categorySchema = new Schema({
-  categoryId: {
-    type: mongoose.Types.ObjectId,
-    default: new mongoose.Types.ObjectId
-  },
   name: {
     type: String,
     required: true,
@@ -24,7 +20,6 @@ const categorySchema = new Schema({
       ref: 'Artist'
     }
   ]
-  // sub cats?
 });
 
 const Category = mongoose.model('Category', categorySchema);
