@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import { Button, Menu } from "semantic-ui-react";
+import { Button, Menu, Dropdown } from "semantic-ui-react";
 
 function Nav() {
 
@@ -18,27 +18,37 @@ function Nav() {
       return (
         <Menu.Menu position="right">
           <Menu.Item>
-            <Link to="/signup">
-              Signup
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/login">
-              Login
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
             <Link to="/quiz">
               Find Your Style
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/browse">
-              Browse Art
+          <Dropdown text="Browse Art">
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to="/browse">
+                  All Art
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to="#">
+                  Post-modernism
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to="#">
+                  Surrealism
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/signup">
+              Signup
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Button to="/test">
+            <Button className="primary" to="/test">
+              Log In
+            </Button>
+          </Menu.Item>
+          <Menu.Item>
+            <Button className="secondary text-dark" to="/test">
               Take the Test
             </Button>
           </Menu.Item>

@@ -33,14 +33,17 @@
 @red              : #D95C5C;
 @teal             : #00B5AD;
 @yellow           : #F2C61F;
+@backgroundColor  : #848C99;
 
 @black            : #1B1C1D;
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
 /*---  Brand Colors  ---*/
-@primaryColor        : @blue;
-@secondaryColor      : @black;
+@primaryColor        : #684B77;
+@secondaryColor      : #7AC943;
+@tertiaryColor       : #848C99;
+
 /*-------------------
       Sizes
 --------------------*/
@@ -69,7 +72,7 @@
 @headerMargin        : 1em 0em 1rem;
 @paragraphMargin     : 0em 0em 1em;
 
-@linkColor           : #009FDA;
+@linkColor           : @white;
 @linkUnderline       : none;
 @linkHoverColor      : lighten( @linkColor, 5);
 
@@ -131,7 +134,9 @@ Background Colors
 @subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 
 /* Used for differentiating layers */
-@subtleShadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+@subtleShadow: 0px 1px 2px 0 rgba(102, 102, 102, 0.05);
+@secondaryShadow: 0px 3px 6px 0 rgba(102, 102, 102, 0.25);
+
 /*-------------------
       Grid
 --------------------*/
