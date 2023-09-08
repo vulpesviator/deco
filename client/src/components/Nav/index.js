@@ -42,6 +42,11 @@ function Nav() {
               Take the Test
             </Button>
           </Menu.Item>
+          <Menu.Item>
+            <Button className="secondary" to="/test">
+              Take the Test
+            </Button>
+          </Menu.Item>
         </Menu.Menu>
       );
     }
