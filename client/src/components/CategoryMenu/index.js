@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
@@ -7,6 +8,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
+import { Dropdown } from "semantic-ui-react";
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -42,19 +44,16 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
+    <>
       {categories.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
+        <Dropdown.Item as={Link} key={item._id}
+        onClick={() => {
+          handleClick(item._id);
+        }}>
+        {item.name}
+        </Dropdown.Item>
       ))}
-    </div>
+    </>
   );
 }
 
