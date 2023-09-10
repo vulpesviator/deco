@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import Categories from "../../pages/Categories";
 import { Link } from "react-router-dom";
-import { Button, Grid, Menu, Dropdown, Responsive } from "semantic-ui-react";
+import { Button, Grid, Menu, Dropdown, Sidebar } from "semantic-ui-react";
 
 function Nav() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -27,20 +27,20 @@ function Nav() {
           <Menu.Item>
             <Dropdown text="Browse Art">
               <Dropdown.Menu>
-              <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
+              
                 <Dropdown.Item as={Link} to="/browse">
                   All Art
                 </Dropdown.Item>
-                </Responsive>
+                
                 {/* <Dropdown.Item as={Link} to="#">
                   Post-modernism
                 </Dropdown.Item>
                 <Dropdown.Item as={Link} to="#">
                   Surrealism
                 </Dropdown.Item> */}
-                 <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+                 
                   <Categories />
-                  </Responsive>
+                  
               </Dropdown.Menu>
             </Dropdown>
           </Menu.Item>
@@ -63,39 +63,31 @@ function Nav() {
   }
 
   return (
+    <>
     <Grid>
-      <Grid.Column>
-        <Menu secondary>
-          <Menu.Item onClick={toggleSidebar}>
-            <Button icon="bars" />
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/">Deco</Link>
-          </Menu.Item>
-          <Responsive
-            as={React.Fragment}
-            minWidth={Responsive.onlyTablet.minWidth}
-          >
+        <Grid.Column>
+          <Menu secondary>
+            <Menu.Item onClick={toggleSidebar}>
+              <Button icon="bars" />
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/">Deco</Link>
+            </Menu.Item>
             {showNavigation()}
-          </Responsive>
-        </Menu>
-      </Grid.Column>
+          </Menu>
+        </Grid.Column>
+      </Grid>
 
-      <Responsive
-        as={React.Fragment}
-        maxWidth={Responsive.onlyTablet.maxWidth}
+      <Sidebar
+        as={Menu}
+        animation="overlay"
+        direction="right"
+        visible={sidebarVisible}
+        onHide={() => setSidebarVisible(false)}
       >
-        <Sidebar
-          as={Menu}
-          animation="overlay"
-          direction="right"
-          visible={sidebarVisible}
-          onHide={() => setSidebarVisible(false)}
-        >
-          {showNavigation()}
-        </Sidebar>
-      </Responsive>
-    </Grid>
+        {showNavigation()}
+      </Sidebar>
+    </>
   );
 }
 
