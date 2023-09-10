@@ -2,7 +2,7 @@
          Site Overrides
 *******************************/
 
-.ui.secondary.menu {
+.ui.inverted.attached.segment {
     background: @tertiaryColor;
     padding: 1.2857rem;
     box-shadow: @secondaryShadow;
