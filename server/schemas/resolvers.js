@@ -22,8 +22,12 @@ const resolvers = {
 
       return await Category.find(params)
     },
-    artworks: async (parent, { category, artist }) => {
+    artworks: async (parent, { title, category, artist }) => {
       const params = {};
+
+      if (title) {
+        params.title = title
+      }
 
       if (category) {
         params.category = category;

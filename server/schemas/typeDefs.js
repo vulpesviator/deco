@@ -48,10 +48,10 @@ const typeDefs = gql`
   type Query {
     categories: [Category]
     category(_id: ID, name: String): Category
-    artworks(category: ID, artist: ID): [Artwork]
-    artwork(_id: ID, title: String): Artwork
+    artworks(title: String, category: ID, artist: ID): [Artwork]
+    artwork(_id: ID, title: String, category: ID, artist: ID): Artwork
     artists: [Artist]
-    artist(_id: ID): Artist
+    artist(_id: ID, name: String, artworks: [ID], categories [ID]): Artist
     user: User
   }
 
