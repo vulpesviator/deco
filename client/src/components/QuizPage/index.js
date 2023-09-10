@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Button, Grid, Header, Radio } from 'semantic-ui-react';
+import { Container, Button, Grid, Header, Icon } from 'semantic-ui-react';
+import Question from '../Question';
 import { useQuery } from '@apollo/client';
 import { QUERY_QUESTIONS } from '../../utils/queries';
 
-
-
-function Question() {
-// const [activeQuestion, setActiveQuestion] = useState(0)
+function QuizPage() {
+  // const [activeQuestion, setActiveQuestion] = useState(0)
   // const [selectedAnswer, setSelectedAnswer] = useState('')
 
   // const [ questions ] = useQuery(QUERY_QUESTIONS);
@@ -24,24 +23,20 @@ function Question() {
 
   return (
     <Container>
-    <Header as='h3' textAlign='center'>
-      This should be the question text
+    <Header as='h2' textAlign='center'>
+      Question #1
     </Header>
     <Grid textAlign='center'>
       <Grid.Row>
-        {/* Map question to a single column object */}
-        <Grid.Column>
-          <image src=""></image>
-          <Radio />
-          <p>
-            <span>This one</span>
-          </p>            
-        </Grid.Column>
-        
+        <Question />
       </Grid.Row>
+      <Button className="primary">
+              Next
+      </Button>
     </Grid>  
     </Container>
   );
-}
 
-export default Question;
+  }
+  
+export default QuizPage;
