@@ -7,3 +7,9 @@
     padding: 1.2857rem;
     box-shadow: @secondaryShadow;
 }
+
+.ui.inverted.menu {
+    background: @tertiaryColor;
+    padding: 1.2857rem;
+    box-shadow: @secondaryShadow;
+}
