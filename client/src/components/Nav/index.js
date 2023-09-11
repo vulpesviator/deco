@@ -14,7 +14,36 @@ export default function Nav() {
     if (Auth.loggedIn()) {
       return (
         <>
-          
+          <Menu.Item
+            name="home"
+            as={Link}
+            to="/"
+          >
+            <img src="deco.svg" alt="" />
+          </Menu.Item>
+          <Menu.Menu position="right">
+            <Menu.Item
+              name="categories"
+              as={Link}
+              to="/categories"
+            />
+
+            
+            <Menu.Item
+              name="profile"
+              as={Link}
+              to="/profile"
+            >
+              <Button className="primary">${username}'s Profile</Button>
+            </Menu.Item>
+            <Menu.Item
+              name="quiz"
+              as={Link}
+              to="/quiz"
+            >
+              <Button className="secondary text-dark">Take the Test</Button>
+            </Menu.Item>
+          </Menu.Menu>
         </>
       );
     } else {
