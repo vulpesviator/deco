@@ -15,13 +15,12 @@ const artistSchema = new Schema({
       required: true
     }
   ],
-  categories: [
+  category:
     {
       type: Schema.Types.ObjectId,
       ref: 'Category',
       required: true
     }
-  ]
 });
 
 const Artist = mongoose.model('Artist', artistSchema);

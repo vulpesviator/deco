@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Category, Question, Artwork, Artist } = require('../models');
+const { User, Category, Artwork, Artist } = require('../models');
 const { signToken } = require('../utils/auth');
 const { populate } = require('../models/User');
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -22,12 +22,8 @@ const resolvers = {
 
       return await Category.find(params)
     },
-    artworks: async (parent, { title, category, artist }) => {
+    artworks: async (parent, { category, artist }) => {
       const params = {};
-
-      if (title) {
-        params.title = title
-      }
 
       if (category) {
         params.category = category;
@@ -61,11 +57,11 @@ const resolvers = {
         select: '_id'
       });
     },
-    artists: async (parent, { _id, name }) => {
+    artist: async (parent, { _id, name }) => {
       const params = {};
 
       if (_id) {
-        return await Artist.findById(_id).populate('categories').populate({
+        return await Artist.findById(_id).populate('category').populate({
           path: 'artworks',
           select: '_id'
         })
@@ -74,10 +70,13 @@ const resolvers = {
       if (name) {
         params.name = name;
       }
-      return await Artist.find(params).populate('categories').populate({
+      return await Artist.find(params).populate('category').populate({
         path: 'artworks',
         select: '_id'
       });
+    },
+    artists: async () => {
+      return await Artist.find();
     },
     user: async (parent, args, context) => {
       if (context.user) {
