@@ -30,7 +30,7 @@ function QuizPage() {
       );
     } else {
       return (
-      <Button className="primary" onClick={handleNext}>
+      <Button className="primary" onClick={onClickNext}>
                 Next
               </Button>
       );
