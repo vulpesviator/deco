@@ -25,7 +25,7 @@ export default function Nav() {
             <Menu.Item
               name="categories"
               as={Link}
-              to="/categories"
+              to="/browse"
             />
 
             
@@ -34,7 +34,7 @@ export default function Nav() {
               as={Link}
               to="/profile"
             >
-              <Button className="primary">${username}'s Profile</Button>
+              <Button className="primary">username's Profile</Button>
             </Menu.Item>
             <Menu.Item
               name="quiz"
