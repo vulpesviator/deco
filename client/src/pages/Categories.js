@@ -4,8 +4,8 @@ import { Card, Container } from "semantic-ui-react";
 
 const Categories = () => {
   return (
-    <Container>
-      <Card.Group itemsPerRow={4}>
+    <Container style={{padding: "20px"}}>
+      <Card.Group centered>
       <CategoryMenu />
       </Card.Group>
     </Container>
