@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Button, Grid, Header, Icon } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
+import { Container, Button, Grid, Header } from 'semantic-ui-react';
 import Question from '../components/Question';
 import { useQuery } from '@apollo/client';
 import { QUERY_QUESTIONS } from '../utils/queries';
 
 function QuizPage() {
-  // const [activeQuestion, setActiveQuestion] = useState(0)
+  const [activeQuestion, setActiveQuestion] = useState(0)
   // const [selectedAnswer, setSelectedAnswer] = useState('')
 
   const [ questions ] = useQuery(QUERY_QUESTIONS);
@@ -16,27 +17,38 @@ function QuizPage() {
 
   // const questionNum = questions[0] + 1
 
-  /* const onClickNext = () => {
+  const onClickNext = () => {
     setActiveQuestion((prev) => prev + 1)
-  } */
+  }
+
+  const showResults = () => {
+    if (activeQuestion === questions.length) {
+      return (
+      <Button className="primary" as={Link} to="/results">
+            See Results
+          </Button>
+      );
+    } else {
+      return (
+      <Button className="primary" onClick={handleNext}>
+                Next
+              </Button>
+      );
+    }
+  }
 
 
   <Container>
       {questions.map((question, index) => (
         <div key={index}>
           <Header as='h2' textAlign='center'>
-            Question #{index + 1}
+            Question #{index + 1} of {questions.length}
           </Header>
           <Grid textAlign='center'>
             <Grid.Row>
               <Question {...question} />
             </Grid.Row>
-            
-            {index < questions.length - 1 && (
-              <Button className="primary">
-                Next
-              </Button>
-            )}
+             {showResults()}
           </Grid>
         </div>
       ))}
