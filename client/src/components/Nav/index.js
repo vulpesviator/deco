@@ -1,72 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 import Auth from "../../utils/auth";
+// import Categories from "../../pages/Categories";
 import { Link } from "react-router-dom";
 import { Button, Menu, Dropdown } from "semantic-ui-react";
+import NavLg from "../NavLg";
+import NavMb from "../NavMb";
 
-function Nav() {
+export default function Nav() {
+  
 
-  function showNavigation() {
+  const renderLinks = () => {
     if (Auth.loggedIn()) {
       return (
-        <Menu.Menu position="right">
-          <Menu.Item onClick={() => Auth.logout()}>
-            Logout
-          </Menu.Item>
-        </Menu.Menu>
+        <>
+          
+        </>
       );
     } else {
       return (
-        <Menu.Menu position="right">
-          <Menu.Item>
-            <Link to="/quiz">
-              Find Your Style
-            </Link>
+        <>
+          <Menu.Item
+            name="home"
+            as={Link}
+            to="/"
+          >
+            <img src="deco.svg" alt="" />
           </Menu.Item>
-          <Menu.Item>
-          <Dropdown text="Browse Art">
-              <Dropdown.Menu>
-                <Dropdown.Item as={Link} to="/browse">
-                  All Art
-                </Dropdown.Item>
-                <Dropdown.Item as={Link} to="#">
-                  Post-modernism
-                </Dropdown.Item>
-                <Dropdown.Item as={Link} to="#">
-                  Surrealism
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/signup">
-              Signup
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Button className="primary" to="/test">
-              Log In
-            </Button>
-          </Menu.Item>
-          <Menu.Item>
-            <Button className="secondary text-dark" to="/test">
-              Take the Test
-            </Button>
-          </Menu.Item>
-        </Menu.Menu>
+          <Menu.Menu position="right">
+            <Menu.Item
+              name="categories"
+              as={Link}
+              to="/categories"
+            />
+
+            <Menu.Item
+              name="signup"
+              as={Link}
+              to="/signup"
+            />
+            <Menu.Item
+              name="login"
+              as={Link}
+              to="/login"
+            >
+              <Button className="primary">Log In</Button>
+            </Menu.Item>
+            <Menu.Item
+              name="quiz"
+              as={Link}
+              to="/quiz"
+            >
+              <Button className="secondary text-dark">Take the Test</Button>
+            </Menu.Item>
+          </Menu.Menu>
+        </>
       );
     }
-  }
+  };
+  
+  const none =useMediaQuery({ query: "(max-width:576px)" }) 
+  const sm = useMediaQuery({ query: "(min-width:576px)" })
+  const md = useMediaQuery({ query: "(min-width:768px)" })
+  const lg = useMediaQuery({ query: "(min-width:992px)" })
+  const xl = useMediaQuery({ query: "(min-width:1200px)" })
+  const xxl = useMediaQuery({ query: "(min-width:1400px)" })
+  const size = {none,sm,md,lg,xl,xxl}
 
   return (
-    <Menu secondary>
-      <Menu.Item>
-        <Link to="/">
-          Deco
-        </Link>
-      </Menu.Item>
-      {showNavigation()}
-    </Menu>
-  );
-}
-
-export default Nav;
+    <>
+        {size.sm ? <NavLg renderLinks={renderLinks}/> : <NavMb renderLinks={renderLinks}/> }
+    </>
+  )
+};
