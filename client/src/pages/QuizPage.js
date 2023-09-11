@@ -24,7 +24,7 @@ function QuizPage() {
   const showResults = () => {
     if (activeQuestion === questions.length) {
       return (
-      <Button className="primary" as={Link} to="/results">
+      <Button className="primary" as={Link} to="/profile">
             See Results
           </Button>
       );
