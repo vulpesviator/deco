@@ -25,7 +25,7 @@ export default function Nav() {
             <Menu.Item
               name="categories"
               as={Link}
-              to="/categories"
+              to="/browse"
             />
 
             

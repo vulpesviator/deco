@@ -8,9 +8,13 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import { Dropdown } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 
 function CategoryMenu() {
+  const cardColor = ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey"];
+
+  const src = "https://react.semantic-ui.com/images/wireframe/white-image.png"
+  
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
@@ -44,16 +48,11 @@ function CategoryMenu() {
   };
 
   return (
-    <>
+      <>
       {categories.map((item) => (
-        <Dropdown.Item as={Link} key={item._id}
-        onClick={() => {
-          handleClick(item._id);
-        }}>
-        {item.name}
-        </Dropdown.Item>
+        <Card color={cardColor[0]} image={src} />
       ))}
-    </>
+      </>
   );
 }
 
