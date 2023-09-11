@@ -8,7 +8,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import { Card } from "semantic-ui-react";
+import { Card, Icon, Image } from "semantic-ui-react";
 
 function CategoryMenu() {
   const cardColor = ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey"];

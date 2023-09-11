@@ -34,7 +34,7 @@ export default function Nav() {
               as={Link}
               to="/profile"
             >
-              <Button className="primary">${username}'s Profile</Button>
+              <Button className="primary">username's Profile</Button>
             </Menu.Item>
             <Menu.Item
               name="quiz"
