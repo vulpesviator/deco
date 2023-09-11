@@ -1,62 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 import Auth from "../../utils/auth";
+// import Categories from "../../pages/Categories";
 import { Link } from "react-router-dom";
+import { Button, Menu, Dropdown } from "semantic-ui-react";
+import NavLg from "../NavLg";
+import NavMb from "../NavMb";
 
-function Nav() {
+export default function Nav() {
+  
 
-  function showNavigation() {
+  const renderLinks = () => {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        <>
+          <Menu.Item
+            name="home"
+            as={Link}
+            to="/"
+          >
+            <img src="deco.svg" alt="" />
+          </Menu.Item>
+          <Menu.Menu position="right">
+            <Menu.Item
+              name="categories"
+              as={Link}
+              to="/browse"
+            />
+
+            
+            <Menu.Item
+              name="profile"
+              as={Link}
+              to="/profile"
+            >
+              <Button className="primary">username's Profile</Button>
+            </Menu.Item>
+            <Menu.Item
+              name="quiz"
+              as={Link}
+              to="/quiz"
+            >
+              <Button className="secondary text-dark">Take the Test</Button>
+            </Menu.Item>
+          </Menu.Menu>
+        </>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/quiz">
-              Find Your Style
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/browse">
-              Browse Art
-            </Link>
-          </li>
-        </ul>
+        <>
+          <Menu.Item
+            name="home"
+            as={Link}
+            to="/"
+          >
+            <img src="deco.svg" alt="" />
+          </Menu.Item>
+          <Menu.Menu position="right">
+            <Menu.Item
+              name="categories"
+              as={Link}
+              to="/categories"
+            />
+
+            <Menu.Item
+              name="signup"
+              as={Link}
+              to="/signup"
+            />
+            <Menu.Item
+              name="login"
+              as={Link}
+              to="/login"
+            >
+              <Button className="primary">Log In</Button>
+            </Menu.Item>
+            <Menu.Item
+              name="quiz"
+              as={Link}
+              to="/quiz"
+            >
+              <Button className="secondary text-dark">Take the Test</Button>
+            </Menu.Item>
+          </Menu.Menu>
+        </>
       );
     }
-  }
+  };
+  
+  const none =useMediaQuery({ query: "(max-width:576px)" }) 
+  const sm = useMediaQuery({ query: "(min-width:576px)" })
+  const md = useMediaQuery({ query: "(min-width:768px)" })
+  const lg = useMediaQuery({ query: "(min-width:992px)" })
+  const xl = useMediaQuery({ query: "(min-width:1200px)" })
+  const xxl = useMediaQuery({ query: "(min-width:1400px)" })
+  const size = {none,sm,md,lg,xl,xxl}
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          Deco
-        </Link>
-      </h1>
-
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
-  );
-}
-
-export default Nav;
+    <>
+        {size.sm ? <NavLg renderLinks={renderLinks}/> : <NavMb renderLinks={renderLinks}/> }
+    </>
+  )
+};

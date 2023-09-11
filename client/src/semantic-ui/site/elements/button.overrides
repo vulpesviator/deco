@@ -1,0 +1,7 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.secondary.button.text-dark {
+    color: @black;
+}

@@ -15,7 +15,8 @@ import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Categories from './pages/Categories';
-import QuizPage from './pages/Quiz';
+import QuizPage from './pages/QuizPage';
+import ProfilePage from './pages/Profile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -67,6 +68,10 @@ function App() {
               <Route 
                 path="/quiz" 
                 element={<QuizPage />} 
+              />
+              <Route
+                path="/profile"
+                element={<ProfilePage />}
               />
             </Routes>
           </StoreProvider>

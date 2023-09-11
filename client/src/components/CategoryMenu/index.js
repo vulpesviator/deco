@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
@@ -7,8 +8,13 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
+import { Card, Icon, Image } from "semantic-ui-react";
 
 function CategoryMenu() {
+  const cardColor = ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey"];
+
+  const src = "https://react.semantic-ui.com/images/avatar/large/matthew.png"
+  
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
@@ -42,19 +48,28 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
+      <>
       {categories.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
+        <Card color={cardColor[0]} key={item.id}>
+          <Image src='${src}' wrapped ui={false} />
+          <Card.Content>
+            <Card.Header>{item.name}</Card.Header>
+            <Card.Meta>
+              <span className='subhead'>This category of art means a thing</span>
+            </Card.Meta>
+            <Card.Description>
+              Artistic description
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <a>
+              <Icon name='user' />
+              See more examples?
+            </a>
+          </Card.Content>
+        </Card>
       ))}
-    </div>
+      </>
   );
 }
 

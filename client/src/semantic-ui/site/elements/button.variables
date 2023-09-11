@@ -1,0 +1,7 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+@defaultBorderRadius: 3rem;
+@boxShadow: @secondaryShadow;
+/* @background: @primaryColor; */
