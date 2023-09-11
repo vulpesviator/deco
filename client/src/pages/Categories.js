@@ -1,11 +1,12 @@
 import React from "react";
 import CategoryMenu from "../components/CategoryMenu";
+import { Container } from "semantic-ui-react";
 
 const Categories = () => {
   return (
-    <div className="container">
+    <Container>
       <CategoryMenu />
-    </div>
+    </Container>
   );
 };
 

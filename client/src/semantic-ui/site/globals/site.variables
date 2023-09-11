@@ -152,6 +152,7 @@ Background Colors
 @computerBreakpoint          : 992px;
 @largeMonitorBreakpoint      : 1400px;
 @widescreenMonitorBreakpoint : 1920px;
+
 /*******************************
          Power-User
 *******************************/
