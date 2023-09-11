@@ -8,7 +8,7 @@ function QuizPage() {
   // const [activeQuestion, setActiveQuestion] = useState(0)
   // const [selectedAnswer, setSelectedAnswer] = useState('')
 
-  // const [ questions ] = useQuery(QUERY_QUESTIONS);
+  const [ questions ] = useQuery(QUERY_QUESTIONS);
 
   // {activeQuestion.questions.map((question) => (
 

@@ -9,7 +9,7 @@ function Question() {
 // const [activeQuestion, setActiveQuestion] = useState(0)
   // const [selectedAnswer, setSelectedAnswer] = useState('')
 
-  // const [ questions ] = useQuery(QUERY_QUESTIONS);
+  const [ questionText, answerOptions ] = useQuery(QUERY_QUESTIONS);
 
   // {activeQuestion.questions.map((question) => (
 
