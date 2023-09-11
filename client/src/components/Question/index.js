@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Button, Grid, Header, Radio } from 'semantic-ui-react';
+import { Container, Grid, Header, Radio } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
 import { QUERY_QUESTIONS } from '../../utils/queries';
 
@@ -24,22 +24,21 @@ function Question() {
 
   return (
     <Container>
-    <Header as='h3' textAlign='center'>
-      This should be the question text
-    </Header>
-    <Grid textAlign='center'>
-      <Grid.Row>
-        {/* Map question to a single column object */}
-        <Grid.Column>
-          <image src=""></image>
-          <Radio />
-          <p>
-            <span>This one</span>
-          </p>            
-        </Grid.Column>
-        
-      </Grid.Row>
-    </Grid>  
+      <Header as='h3' textAlign='center'>
+        {questionText}
+      </Header>
+      <Grid textAlign='center'>
+        <Grid.Row>
+          {/* Map question options */}
+          {answerOptions.map((option, index) => (
+            <Grid.Column key={index}>
+              <img src={option.imagePath} alt={`Option ${index + 1}`} />
+              <Radio />
+              <p>{option.text}</p>
+            </Grid.Column>
+          ))}
+        </Grid.Row>
+      </Grid>
     </Container>
   );
 }
