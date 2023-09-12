@@ -63,7 +63,7 @@ function CategoryMenu() {
           </Card.Content>
           <Card.Content extra>
             <a>
-              <Icon name='user' />
+              <Icon name='th' />
               See more examples?
             </a>
           </Card.Content>
