@@ -22,7 +22,9 @@ const questionSchema = new Schema({
   answers: [answerSchema],
   images: [
     {
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: 'Image',
+      required: true
     }
   ],
 });

@@ -3,25 +3,19 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const artworkSchema = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
     image: {
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: 'Image'
     },
     artist: {
-      type: Schema.Types.ObjectId,
-      ref: 'Artist',
-      required: true
+      type: String
     },
     category: {
       type: Schema.Types.ObjectId,
-      ref: 'Category',
-      required: true
+      ref: 'Category'
     }
   });
 
-  const Artwork = mongoose.model('Artwork', artworkSchema);
+const Artwork = mongoose.model('Artwork', artworkSchema);
 
 module.exports = Artwork;
