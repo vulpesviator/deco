@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Category, Artwork, Question } = require('../models');
+const { User, Category, Image, Question } = require('../models');
 const { signToken } = require('../utils/auth');
 const { populate } = require('../models/User');
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -9,37 +9,20 @@ const resolvers = {
     questions: async () => {
       return await Question.find();
     },
+    question: async (parent, {_id}) => {
+      return await Question.findById(_id);
+    },
     categories: async () => {
-      return await Category.find()
+      return await Category.find();
     },
-    category: async (parent, {_id, name}) => {
-      const params = {};
-
-      if (_id){
-        return await Category.findById(_id)
-      }
-
-      if (name){
-        params.name = name
-      }
-
-      return await Category.find(params)
+    category: async (parent, {_id}) => {
+      return await Category.findById(_id);
     },
-    artworks: async () => {
-      return await Artwork.find()
+    images: async () => {
+      return await Image.find();
     },
-    artwork: async (parent, { _id, category }) => {
-      const params = {};
-
-      if (_id){
-        return await Artwork.findById(_id).populate('category')
-      }
-
-      if (title){
-        params.title = title
-      }
-
-      return await Artwork.find(params).populate('category')
+    image: async (parent, { _id }) => {
+      return await Image.findById(_id);
     },
     user: async (parent, args, context) => {
       if (context.user) {
