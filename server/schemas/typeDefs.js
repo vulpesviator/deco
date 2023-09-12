@@ -25,6 +25,7 @@ const typeDefs = gql`
     _id: ID
     text: String
     answers: [Answer]
+    image: [String]
   }
 
   type Answer {
@@ -53,6 +54,7 @@ const typeDefs = gql`
     artists(name: String): [Artist]
     artist(_id: ID): Artist
     user: User
+    questions: [Question]
   }
 
   type Mutation {

@@ -1,28 +1,31 @@
-
 [
     {
 
        "text":  "Which image do you prefer?",
-       "answers": []
+       "answers": [],
+       "image": ["./images/abstract.jpg", "./images/expressionism.jpg", "./images/mid-century-modern.jpg"]
     },
     {
  
         "text": "Which image would look great in your office?",
-        "answers": []
+        "answers": [],
+        "image": [ "./images/gothic.jpg", "./images/neoclassical.jpg", "./images/romanticism.jpg"   ]
     },
     {
     
        "text":  "Which image do you gravitate towards?",
-       "answers": []
+       "answers": [],
+       "image": ["./images/realism.jpg", "./images/surrealism.jpg", "./images/renaissance.jpg"   ]
     },
     {
         "text": "which image inspires you?",
-        "answers": []
+        "answers": [],
+       "image": ["./images/postmodern.jpg", "./images/street-art.jpg", "./images/rustic.jpg"   ]
     },
     {
 
         "text": "which image do you think is the most beautiful?",
-        "answers": []
+        "answers": [],
+       "image": ["./images/minimalism.jpg", "./images/impressionism.jpg", "./images/art-nouveau.jpg"   ]
     }
-
 ]
