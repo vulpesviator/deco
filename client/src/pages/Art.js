@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Header, Message, Segment } from 'semantic-ui-react';
-import "pure-react-carousel/dist/react-carousel.es.css";
 import ImageCarousel from '../components/ImageCarousel';
 
 function Art() {

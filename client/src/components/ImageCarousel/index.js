@@ -1,30 +1,28 @@
-import { CarouselProvider, Image, Slide, Slider } from "pure-react-carousel";
 import React from "react";
-import { Divider } from "semantic-ui-react";
 
-import CustomDotGroup from "./CustomDotGroup";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
-const ImageCarousel = () => (
-  <CarouselProvider
-    naturalSlideWidth={1}
-    naturalSlideHeight={.6}
-    totalSlides={3}
-  >
-    <Slider>
-      <Slide tag="a" index={0}>
-        <Image src="https://picsum.photos/600/400" />
-      </Slide>
-      <Slide tag="a" index={1}>
-        <Image src="https://picsum.photos/600/400" />
-      </Slide>
-      <Slide tag="a" index={2}>
-        <Image src="https://picsum.photos/600/400" />
-      </Slide>
-    </Slider>
+const images = [
+  {
+    original: "https://picsum.photos/id/1018/1000/600/",
+    thumbnail: "https://picsum.photos/id/1018/250/150/",
+  },
+  {
+    original: "https://picsum.photos/id/1015/1000/600/",
+    thumbnail: "https://picsum.photos/id/1015/250/150/",
+  },
+  {
+    original: "https://picsum.photos/id/1019/1000/600/",
+    thumbnail: "https://picsum.photos/id/1019/250/150/",
+  },
+];
 
-    <Divider />
-    <CustomDotGroup slides={3} />
-  </CarouselProvider>
-);
+class ImageCarousel extends React.Component {
+    render() {
+      return <ImageGallery items={images} />;
+    }
+  }
+
 
 export default ImageCarousel;
