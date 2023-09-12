@@ -4,7 +4,7 @@
 
 .ui.inverted.attached.segment {
     background: @tertiaryColor;
-    padding: 1.2857rem;
+    padding: 1rem;
     box-shadow: @secondaryShadow;
 }
 

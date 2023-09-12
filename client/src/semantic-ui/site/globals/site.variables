@@ -27,9 +27,9 @@
 /*---  Colors  ---*/
 @blue             : #3B83C0;
 @green            : #5BBD72;
-@orange           : #E07B53;
+@orange           : #F86537;
 @pink             : #D9499A;
-@purple           : #564F8A;
+@purple           : #925BFF;
 @red              : #D95C5C;
 @teal             : #00B5AD;
 @yellow           : #F2C61F;
@@ -40,9 +40,9 @@
 @white            : #FFFFFF;
 
 /*---  Brand Colors  ---*/
-@primaryColor        : #684B77;
-@secondaryColor      : #7AC943;
-@tertiaryColor       : #848C99;
+@primaryColor        : #925BFF;
+@secondaryColor      : #F86537;
+@tertiaryColor       : #150020;
 
 /*-------------------
       Sizes
@@ -62,7 +62,7 @@
       Page
 --------------------*/
 
-@pageBackground      : #F7F7F7;
+@pageBackground      : #E6DBCE;
 @pageOverflowX       : hidden;
 
 @fontSize            : 14px;
