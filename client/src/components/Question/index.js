@@ -9,36 +9,67 @@ function Question() {
 // const [activeQuestion, setActiveQuestion] = useState(0)
   // const [selectedAnswer, setSelectedAnswer] = useState('')
 
-  const [ questionText, answerOptions ] = useQuery(QUERY_QUESTIONS);
+  
+  const [activeQuestion, setActiveQuestion] = useState(0);
+  // const [selectedAnswer, setSelectedAnswer] = useState('')
+  const { loading, data } = useQuery(QUERY_QUESTIONS);
 
-  // {activeQuestion.questions.map((question) => (
+  const [isDisabled, setDisabled] = useState(true);
+  
+  const questions = data?.questions || [];
+  console.log(questions);
 
-  // ))}
+  useEffect( () => {
+    if (data) {
 
-  // const questionNum = questions[0] + 1
+    } else if (loading) {
+      console.log("LOADING..");
+    
+    }
+  }, [data, loading])
 
-  /* const onClickNext = () => {
-    setActiveQuestion((prev) => prev + 1)
-  } */
+  const onClickNext = (event) => {
+    event.preventDefault();
+    if (activeQuestion !== questions.length - 1) { setActiveQuestion((prev) => prev + 1)
+      setDisabled(false)
+   } else {
+     setActiveQuestion(0)
+   }
+   }
 
+
+
+const text = questions.map((question) => question.text)
+console.log('questions', questions)
+console.log(text, 'text')
+const images = questions.map((image) => image.image)
+
+console.log("images at active q", images[activeQuestion])
+  
 
   return (
     <Container>
+     
+      {loading ? (<div>Loading...</div>) : (
+        <div>
       <Header as='h3' textAlign='center'>
-        {questionText}
+       <p> {text[activeQuestion]}</p>
       </Header>
       <Grid textAlign='center'>
-        <Grid.Row>
-          {/* Map question options */}
-          {answerOptions.map((option, index) => (
-            <Grid.Column key={index}>
-              <img src={option.imagePath} alt={`Option ${index + 1}`} />
+      {images[activeQuestion].map((image) => {
+        return <Grid.Row> <button onClick={onClickNext}> <img src={image} alt={image} height = '200' width = '200' margin = '10px' padding = '10px'></img> </button>
+            <Grid.Column key='temp'>
+              
               <Radio />
-              <p>{option.text}</p>
+              <p>{image.text}</p>
             </Grid.Column>
-          ))}
+         
         </Grid.Row>
+        } )
+        }
       </Grid>
+      </div>
+      )}
     </Container>
   );
 }

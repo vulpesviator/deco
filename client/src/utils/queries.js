@@ -20,12 +20,14 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_QUESTIONS = gql`
-  {
-      questions {
-        text
-        image
-        category
-        answerId
-      }
-    
-  }`
+query Questions {
+  questions {
+     _id
+    text
+    image
+    answers {
+      text
+    }
+   
+  }
+}`
