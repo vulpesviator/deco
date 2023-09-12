@@ -62,10 +62,10 @@ function CategoryMenu() {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
-              <Icon name='user' />
+            <Link to="/art">
+              <Icon name='th' />
               See more examples?
-            </a>
+            </Link>
           </Card.Content>
         </Card>
       ))}
