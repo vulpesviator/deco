@@ -17,6 +17,7 @@ import { StoreProvider } from './utils/GlobalState';
 import Categories from './pages/Categories';
 import QuizPage from './pages/QuizPage';
 import ProfilePage from './pages/Profile';
+import Art from './pages/Art';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -62,7 +63,7 @@ function App() {
                 element={<NoMatch />} 
               />
               <Route 
-                path="/browse" 
+                path="/categories" 
                 element={<Categories />} 
               />
               <Route 
@@ -72,6 +73,10 @@ function App() {
               <Route
                 path="/profile"
                 element={<ProfilePage />}
+              />
+              <Route
+                path="/art"
+                element={<Art />}
               />
             </Routes>
           </StoreProvider>
