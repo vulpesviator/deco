@@ -1,33 +1,60 @@
+
 import React, { useEffect, useState } from 'react';
 import { Container, Grid, Header, Radio, Button } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
 import { QUERY_QUESTIONS } from '../../utils/queries';
 import RenderImages from '../Quiz Images';
 
+export function RatingSlider() {
+  const [rating, setRating] = useState(1);
 
+  const handleChange = (e) => {
+    setRating(e.target.value);
+  };
+
+    return (
+      <>
+      <div>
+        <div>Rating: {rating}</div>
+        <input
+          type='range'
+          min={1}
+          max={5}
+          value={rating}
+          onChange={handleChange}
+        /><br />
+        <Rating
+          icon="star"
+          maxRating={5}
+          rating={rating}
+        />
+      </div>
+      <div>
+      <Button primary onClick={() => rating}>
+          Next
+        </Button>
+      </div>
+    </>
+    )
+}
 
 function Question() {
-// const [activeQuestion, setActiveQuestion] = useState(0)
-// const [selectedAnswer, setSelectedAnswer] = useState('')
 
-  
   const [activeQuestion, setActiveQuestion] = useState(0);
-  // const [selectedAnswer, setSelectedAnswer] = useState('')
+  
   const { loading, data } = useQuery(QUERY_QUESTIONS);
 
   const [isDisabled, setDisabled] = useState(true);
-  
+
   const questions = data?.questions || [];
   console.log(questions);
 
-  useEffect( () => {
+  useEffect(() => {
     if (data) {
-
     } else if (loading) {
       console.log("LOADING..");
-    
     }
-  }, [data, loading])
+  }, [data, loading]);
 
 const text = questions.map((question) => question.text)
 console.log('questions', questions)
@@ -42,6 +69,7 @@ console.log(activeQuestion, 'active question')
  
   const onClickNext = (event) => {
     event.preventDefault();
+
     event.stopPropagation();
     if (activeQuestion !== questions.length - 1) { setActiveQuestion((prev) => prev + 1)
       setDisabled(false)
@@ -79,7 +107,9 @@ console.log(activeQuestion, 'active question')
             <Grid.Column key='temp'>
             <div>{showResults()}</div>
             </Grid.Column>
-         
+         <div>
+                  <RatingSlider />
+                  </div>
       
       
         
