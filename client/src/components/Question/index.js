@@ -7,7 +7,7 @@ import { QUERY_QUESTIONS } from '../../utils/queries';
 
 function Question() {
 // const [activeQuestion, setActiveQuestion] = useState(0)
-  // const [selectedAnswer, setSelectedAnswer] = useState('')
+// const [selectedAnswer, setSelectedAnswer] = useState('')
 
   
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -49,26 +49,38 @@ console.log("images at active q", images[activeQuestion])
 
   return (
     <Container>
-     
-      {loading ? (<div>Loading...</div>) : (
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
         <div>
-      <Header as='h3' textAlign='center'>
-       <p> {text[activeQuestion]}</p>
-      </Header>
-      <Grid textAlign='center'>
-      {images[activeQuestion].map((image) => {
-        return <Grid.Row> <button onClick={onClickNext}> <img src={image} alt={image} height = '200' width = '200' margin = '10px' padding = '10px'></img> </button>
-            <Grid.Column key='temp'>
-              
-              <Radio />
-              <p>{image.text}</p>
-            </Grid.Column>
-         
-        </Grid.Row>
-        } )
-        }
-      </Grid>
-      </div>
+          <Header as="h3" textAlign="center">
+            <p> {text[activeQuestion]}</p>
+          </Header>
+          <Grid textAlign="center">
+            {images[activeQuestion].map((image) => {
+              return (
+                <Grid.Row>
+                  {" "}
+                  <button onClick={onClickNext}>
+                    {" "}
+                    <img
+                      src={image}
+                      alt={image}
+                      height="auto"
+                      width="200"
+                      margin="10px"
+                      padding="10px"
+                    ></img>{" "}
+                  </button>
+                  <Grid.Column key="temp">
+                    <Radio />
+                    <p>{image.text}</p>
+                  </Grid.Column>
+                </Grid.Row>
+              );
+            })}
+          </Grid>
+        </div>
       )}
     </Container>
   );
