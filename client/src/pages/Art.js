@@ -1,11 +1,10 @@
 import React from 'react';
 import { Container, Header, Message, Segment } from 'semantic-ui-react';
-import "pure-react-carousel/dist/react-carousel.es.css";
 import ImageCarousel from '../components/ImageCarousel';
 
 function Art() {
     return (
-        <Container style={{ margin: 20 }}>
+        <div style={{ margin: 20 }}>
           <Segment attached="top">
             <Header as="h2" content="Image carousel" />
             <p>
@@ -18,7 +17,7 @@ function Art() {
           <Segment attached="bottom">
             <ImageCarousel />
           </Segment>
-        </Container>
+        </div>
       );
 }
 

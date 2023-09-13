@@ -8,7 +8,7 @@ import RenderImages from '../Quiz Images';
 
 function Question() {
 // const [activeQuestion, setActiveQuestion] = useState(0)
-  // const [selectedAnswer, setSelectedAnswer] = useState('')
+// const [selectedAnswer, setSelectedAnswer] = useState('')
 
   
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -60,9 +60,11 @@ console.log(activeQuestion, 'active question')
 
   return (
     <Container>
-     
-      {loading ? (<div>Loading...</div>) : (
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
         <div>
+
       <Header as='h3' textAlign='center'>
        <p> {text[activeQuestion]}</p>
       </Header>
