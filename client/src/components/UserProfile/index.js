@@ -3,27 +3,37 @@ import { useMediaQuery } from 'react-responsive'
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import ImageCarousel from "../ImageCarousel";
-import { List, Container, Segment, Header } from "semantic-ui-react";
+import { List, Container, Segment, Header, Button } from "semantic-ui-react";
 
 function UserProfile() {
+
+  const handleLogout = async (event) => {
+    event.preventDefault();
+    try {
+      Auth.logout();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
 return (
   <Container >
     <Segment.Group horizontal>
-      <Segment.Group>
-        <Segment>
-          <Header size="huge">Danny Wittig</Header>
+        <Segment horizontal textAlign="center">
+          <h1 font-size="50px">Danny Wittig</h1>
+          <Segment textAlign="center" s>
+          <Button onClick={handleLogout}>Log Out</Button>
         </Segment>
-        <Segment>Chicago, IL</Segment>
-      </Segment.Group>
-      <Segment textAlign="center">
+        </Segment>
+        
+      {/* <Segment textAlign="center">
         <Header>Top Artists</Header>
         <List>
           <List.Item>Vincent Van Gogh</List.Item>
           <List.Item>Pablo Picasso</List.Item>
           <List.Item>Andy Warhol</List.Item>
         </List>
-      </Segment>
+      </Segment> */}
       <Segment textAlign="center">
         <Header>Top Art Styles</Header>
         <List>

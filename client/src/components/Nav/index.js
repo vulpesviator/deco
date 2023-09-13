@@ -55,7 +55,7 @@ export default function Nav() {
             as={Link}
             to="/"
           >
-            <img src="deco.svg" alt="" />
+            <Image src="/images/deco.png" alt="" height="50px" />
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
