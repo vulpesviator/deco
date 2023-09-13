@@ -6,21 +6,31 @@ import { QUERY_QUESTIONS } from "../../utils/queries";
 export function RatingSlider() {
   const [rating, setRating] = useState(1);
 
-  const handleChange = (e, { rating }) => setRating(rating);
+  const handleChange = (e) => {
+    setRating(e.target.value);
+  };
 
     return (
       <>
       <div>
         <div>Rating: {rating}</div>
+        <input
+          type='range'
+          min={1}
+          max={5}
+          value={rating}
+          onChange={handleChange}
+        /><br />
         <Rating
           icon="star"
-          rating={rating}
           maxRating={5}
-          onRate={handleChange}
+          rating={rating}
         />
       </div>
       <div>
-        <Button onClick={handleChange}>Submit Rating</Button>
+      <Button primary onClick={() => rating}>
+          Next
+        </Button>
       </div>
     </>
     )
@@ -102,7 +112,11 @@ function Question() {
       </Container>
     );
   } else {
-    return <RatingSlider />;
+    return (
+      <Grid.Row>
+        <RatingSlider />
+      </Grid.Row>
+    );
   }
   
 }
