@@ -1,37 +1,22 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Artist {
-    _id: ID
-    name: String
-    artworks: [Artwork]
-    category: Category
-  }
-
-  type Artwork {
-    _id: ID
-    image: String
-    title: String
-    artist: Artist
-    category: Category
-  }
-
   type Category {
     _id: ID
     name: String
   }
 
+  type Image {
+    _id: ID
+    src: String
+    artist: String
+    category: Category
+  }
+
   type Question {
     _id: ID
     text: String
-    answers: [Answer]
-    image: [String]
-  }
-
-  type Answer {
-    _id: ID
-    text: String
-    category: Category
+    image: [Image]
   }
 
   type User {
@@ -48,13 +33,12 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
-    category(_id: ID, name: String): Category
-    artworks(category: ID, artist: ID): [Artwork]
-    artwork(_id: ID, title: String): Artwork
-    artists(name: String): [Artist]
-    artist(_id: ID, name: String): Artist
+    category(_id: ID): Category
+    images: [Image]
+    image(_id: ID): Image
     user: User
     questions: [Question]
+    question(_id: ID): Question
   }
 
   type Mutation {

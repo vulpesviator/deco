@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Category, Artwork, Artist, Question } = require('../models');
+const { User, Category, Image, Question } = require('../models');
 const { signToken } = require('../utils/auth');
 const { populate } = require('../models/User');
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -9,77 +9,20 @@ const resolvers = {
     questions: async () => {
       return await Question.find();
     },
+    question: async (parent, {_id}) => {
+      return await Question.findById(_id);
+    },
     categories: async () => {
-      return await Category.find()
+      return await Category.find();
     },
-    category: async (parent, {_id, name}) => {
-      const params = {};
-
-      if (_id){
-        return await Category.findById(_id)
-      }
-
-      if (name){
-        params.name = name
-      }
-
-      return await Category.find(params)
+    category: async (parent, {_id}) => {
+      return await Category.findById(_id);
     },
-    artworks: async (parent, { category, artist }) => {
-      const params = {};
-
-      if (category) {
-        params.category = category;
-      }
-
-      if (artist) {
-        params.artist = artist
-      }
-
-      return await Artwork.find(params).populate('category').populate({
-        path: 'artist',
-        select: '_id'
-      });
+    images: async () => {
+      return await Image.find();
     },
-    artwork: async (parent, { _id, title }) => {
-      const params = {};
-
-      if (_id){
-        return await Artwork.findById(_id).populate('category').populate({
-          path: 'artist',
-          select: '_id'
-        });
-      }
-
-      if (title){
-        params.title = title
-      }
-
-      return await Artwork.find(params).populate('category').populate({
-        path: 'artist',
-        select: '_id'
-      });
-    },
-    artist: async (parent, { _id, name }) => {
-      const params = {};
-
-      if (_id) {
-        return await Artist.findById(_id).populate('category').populate({
-          path: 'artworks',
-          select: '_id'
-        })
-      }
-
-      if (name) {
-        params.name = name;
-      }
-      return await Artist.find(params).populate('category').populate({
-        path: 'artworks',
-        select: '_id'
-      });
-    },
-    artists: async () => {
-      return await Artist.find();
+    image: async (parent, { _id }) => {
+      return await Image.findById(_id);
     },
     user: async (parent, args, context) => {
       if (context.user) {

@@ -24,6 +24,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  // fav categories
 });
 
 // set up pre-save middleware to create password
