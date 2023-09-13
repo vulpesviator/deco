@@ -57,6 +57,7 @@ export default function Nav() {
             to="/"
           >
             <img src={Logo} alt="" />
+
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item

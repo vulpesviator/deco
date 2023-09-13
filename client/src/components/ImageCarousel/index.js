@@ -1,30 +1,85 @@
-import { CarouselProvider, Image, Slide, Slider } from "pure-react-carousel";
 import React from "react";
-import { Divider } from "semantic-ui-react";
+import Slider from 'react-slick';
+import { Container } from 'semantic-ui-react';
 
-import CustomDotGroup from "./CustomDotGroup";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-const ImageCarousel = () => (
-  <CarouselProvider
-    naturalSlideWidth={1}
-    naturalSlideHeight={.6}
-    totalSlides={3}
-  >
-    <Slider>
-      <Slide tag="a" index={0}>
-        <Image src="https://picsum.photos/600/400" />
-      </Slide>
-      <Slide tag="a" index={1}>
-        <Image src="https://picsum.photos/600/400" />
-      </Slide>
-      <Slide tag="a" index={2}>
-        <Image src="https://picsum.photos/600/400" />
-      </Slide>
-    </Slider>
+const ImageCarousel = () => {
+  const settings = {
+    adaptiveHeight: true,
+    centerMode: true,
+    centerPadding: '60px',
+    lazyLoad: 'ondemand',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          arrows: true,
+          centerMode: true,
+          centerPadding: '50px',
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
-    <Divider />
-    <CustomDotGroup slides={3} />
-  </CarouselProvider>
-);
+  return (
+    <Container fluid>
+      <style>
+        {`
+        #root > div > div.ui.container > div.ui.bottom.attached.segment > div > div > div > div > div.slick-slide.slick-active.slick-center.slick-current > div {
+          transform: scale(1.5);
+          transition: 0.2s;
+          transition-timing-function: ease;
+        }
+        `}
+      </style>
+      <Slider {...settings}>
+        <div>
+          <img src="https://picsum.photos/id/1018/400/300" />
+        </div>
+        <div>
+          <img src="https://picsum.photos/id/1015/400/300" />
+        </div>
+        <div>
+          <img src="https://picsum.photos/id/1019/400/300" />
+        </div>
+        <div>
+          <img src="https://picsum.photos/id/1029/400/300" />
+        </div>
+        <div>
+          <img src="https://picsum.photos/id/1021/400/300" />
+        </div>
+        <div>
+          <img src="https://picsum.photos/id/1039/400/300" />
+        </div>
+      </Slider>
+    </Container>
+  );
+}
+
 
 export default ImageCarousel;
