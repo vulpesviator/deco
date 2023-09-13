@@ -23,12 +23,23 @@ export const QUERY_USER = gql`
 export const QUERY_QUESTIONS = gql`
 query Questions {
   questions {
-     _id
+    _id
     text
-    image
-    answers {
-      text
+    image {
+      _id
+      src
     }
-   
+  }
+}`
+
+export const QUERY_IMAGES = gql `
+query Images {
+  images {
+    src
+    _id
+    category {
+      _id
+    }
+    
   }
 }`

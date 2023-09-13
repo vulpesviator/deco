@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Grid, Header, Radio, Button } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
 import { QUERY_QUESTIONS } from '../../utils/queries';
-
+import RenderImages from '../Quiz Images';
 
 
 
@@ -29,16 +29,14 @@ function Question() {
     }
   }, [data, loading])
 
-
-
-
-
 const text = questions.map((question) => question.text)
 console.log('questions', questions)
 console.log(text, 'text')
-const images = questions.map((image) => image.image)
 
-console.log("images at active q", images[activeQuestion])
+const images = questions.map((question) => question.image)
+console.log(images[activeQuestion], 'images')
+
+// console.log("images at active q", images[activeQuestion])
 console.log(activeQuestion, 'active question')
  console.log(questions.length, 'questions length')
  
@@ -68,19 +66,22 @@ console.log(activeQuestion, 'active question')
       <Header as='h3' textAlign='center'>
        <p> {text[activeQuestion]}</p>
       </Header>
-      <Grid textAlign='center'>
-      {images[activeQuestion].map((image) => {
-        return <Grid.Row>   <Radio onClick={onClickNext}/> <img src={image} alt={image} height = '200' width = '200' margin = '10px' padding = '10px'></img> 
-       
+
+         <Grid textAlign='center'>
+       {images[activeQuestion].map((image) => {
+         return <Grid.Row>    <Radio></Radio> <img src={image.src} alt={image.src} height = '200' width = '200' margin = '10px' padding = '10px'></img>
+         </Grid.Row>
+       })}
+        </Grid>
+         
             <Grid.Column key='temp'>
             <div>{showResults()}</div>
             </Grid.Column>
          
-        </Grid.Row>
-        } )
-        }
       
-      </Grid>
+      
+        
+    
       </div>
       )}
     </Container>
