@@ -58,7 +58,7 @@ function CategoryMenu() {
               <span className='subhead'>This category of art means a thing</span>
             </Card.Meta>
             <Card.Description>
-              Artistic description
+              {item.description}
             </Card.Description>
           </Card.Content>
           <Card.Content extra>

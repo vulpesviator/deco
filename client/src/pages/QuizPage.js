@@ -21,21 +21,7 @@ function QuizPage() {
   //   setActiveQuestion((prev) => prev + 1)
   // }
 
-  // const showResults = () => {
-  //   if (activeQuestion === questions.length) {
-  //     return (
-  //     <Button className="primary" as={Link} to="/profile">
-  //           See Results
-  //         </Button>
-  //     );
-  //   } else {
-  //     return (
-  //     <Button className="primary" onClick={onClickNext}>
-  //               Next
-  //             </Button>
-  //     );
-  //   }
-  // }
+ 
 
 return (
   <Container>
