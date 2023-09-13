@@ -11,3 +11,7 @@
 .ui.inverted.menu {
     background: @tertiaryColor;  
 }
+
+.ui.menu .item > img:not(.ui) {
+    width: 4rem !important;
+}

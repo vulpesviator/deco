@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button, Menu, Image, Dropdown } from "semantic-ui-react";
 import NavLg from "../NavLg";
 import NavMb from "../NavMb";
+import Logo from "../../assets/deco.png"
 
 export default function Nav() {
   
@@ -20,7 +21,7 @@ export default function Nav() {
             to="/"
             fitted
           >
-            <Image src="/images/deco.png" alt="" height="50px" />
+            <Image src={Logo} alt="deco" />
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
@@ -55,7 +56,7 @@ export default function Nav() {
             as={Link}
             to="/"
           >
-            <img src="deco.svg" alt="" />
+            <img src={Logo} alt="" />
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
