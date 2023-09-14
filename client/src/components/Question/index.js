@@ -8,27 +8,46 @@ export
 
 function Question() {
 
+
   const [activeQuestion, setActiveQuestion] = useState(0);
-  
-  const [isDisabled, setDisabled] = useState(true);
+
+  const [isDisabled, setDisabled] = useState(false);
   const { loading, data } = useQuery(QUERY_IMAGES);
   const images = data?.images || [];
-  const currentImage = images[activeQuestion]
-  console.log(images)
-  console.log(currentImage)
-  
+  const currentImage = images[activeQuestion];
+  console.log(images);
+  console.log(currentImage);
+
   function RatingSlider() {
     const [rating, setRating] = useState(1);
-    const onClickNext = (event) => {
-      event.preventDefault();
-  
-      event.stopPropagation();
-      if (activeQuestion !== images.length - 1) { setActiveQuestion((prev) => prev + 1)
-        setDisabled(false)
-     } 
-     }
+    console.log(
+      "category:",
+      currentImage.category.name,
+      "category ID:",
+      currentImage.category._id,
+      "rating:",
+      rating
+    );
     const handleChange = (e) => {
       setRating(e.target.value);
+    };
+
+    if (activeQuestion === 17) {
+      setDisabled(true);
+    }
+
+    const navigate = useNavigate();
+    const navigateProfile = () => {
+      navigate("/profile");
+    };
+    const onClickNext = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (activeQuestion !== images.length - 1) {
+        setActiveQuestion((prev) => prev + 1);
+      } else if (isDisabled) {
+        navigateProfile();
+      }
     };
   
       return (
@@ -51,25 +70,12 @@ function Question() {
         <Grid.Row>
         <Button primary onClick={onClickNext}>
             Next
+
           </Button>
         </Grid.Row>
       </>
-      )
+    );
   }
-   
-
-
-   const showResults = () => {
-    if (activeQuestion === 18) 
-    {
-      return (
-      <Button className="primary" to="/profile">
-            See Results
-          </Button>
-      );
-    } 
-  } 
-
 
   return (
     <Container>
@@ -77,6 +83,9 @@ function Question() {
         <div>Loading...</div>
       ) : (
         <div>
+          <Header as="h3" textAlign="center">
+            <p> Rate the following Artworks</p>
+          </Header>
 
       <Header as='h3' textAlign='center'>
        <p> Rate the following Artworks</p>
@@ -94,9 +103,14 @@ function Question() {
                  
                   <Grid.Row key='temp'>
             <div>{showResults()}</div>
+
             </Grid.Row>
-                  </Grid>  
-             </div>
+
+            <RatingSlider />
+
+            <Grid.Row key="temp"></Grid.Row>
+          </Grid>
+        </div>
       )}
     </Container>
   );
