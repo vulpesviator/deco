@@ -7,7 +7,9 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const ImageCarousel = ({ images }) => {
   if (!images || !images.length) {
-    return <div>No images available</div>;
+    return (
+      <div>No images available</div>
+    );
   }
   
   const settings = {
@@ -50,6 +52,8 @@ const ImageCarousel = ({ images }) => {
     ],
   };
 
+  console.log(images);
+
   return (
     <Container fluid>
       <style>
@@ -63,7 +67,7 @@ const ImageCarousel = ({ images }) => {
       </style>
       <Slider {...settings}>
       {images.map((image) => ( 
-                    <div key={image._id}>
+                    <div>
                         <img src={image.src} alt={image.artist} />
                     </div>
                 ))}

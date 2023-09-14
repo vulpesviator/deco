@@ -1,91 +1,91 @@
 [
     {
-        "src": "./assets/abstract.jpg",
+        "src": "./images/abstract.jpg",
         "artist": "Nathan Dumlao",
         "category": "Abstract"
     },
     {
-        "src": "./assets/art-deco.jpg",
+        "src": "./images/art-deco.jpg",
         "artist": "McGill Library",
         "category": "Art Deco"
     },
     {
-        "src": "./assets/art-nouveau.jpg",
+        "src": "./images/art-nouveau.jpg",
         "artist": "Europeana",
         "category": "Art Nouveau"
     },
     {
-        "src": "./assets/expressionism.jpg",
+        "src": "./images/expressionism.jpg",
         "artist": "Steve Johnson",
         "category": "Expressionism"
     },
     {
-        "src": "./assets/gothic.jpg",
+        "src": "./images/gothic.jpg",
         "artist": "Jonas Jaeken",
         "category": "Gothic"
     },
     {
-        "src": "./assets/impressionism.jpg",
+        "src": "./images/impressionism.jpg",
         "artist": "Europeana",
         "category": "Impressionism"
     },
     {
-        "src": "./assets/mid-century-modern.jpg",
+        "src": "./images/mid-century-modern.jpg",
         "artist": "Omar Flores",
         "category": "Mid-Century"
     },
     {
-        "src": "./assets/minimalism.jpg",
+        "src": "./images/minimalism.jpg",
         "artist": "Annie Spratt",
         "category": "Minimalism"
     },
     {
-        "src": "./assets/modern.jpg",
+        "src": "./images/modern.jpg",
         "artist": "Birmingham Museums Trust",
         "category": "Modernism"
     },
     {
-        "src": "./assets/neoclassical.jpg",
+        "src": "./images/neoclassical.jpg",
         "artist": "Europeana",
         "category": "Neoclassicism"
     },
     {
-        "src": "./assets/pop-art.jpg",
+        "src": "./images/pop-art.jpg",
         "artist": "Tim Hufner",
         "category": "Pop Art"
     },
     {
-        "src": "./assets/postmodern.jpg",
+        "src": "./images/postmodern.jpg",
         "artist": "Jazmin Quaynor",
         "category": "Postmodern"
     },
     {
-        "src": "./assets/realism.jpg",
+        "src": "./images/realism.jpg",
         "artist": "Europeana",
         "category": "Realism"
     },
     {
-        "src": "./assets/renaissance.jpg",
+        "src": "./images/renaissance.jpg",
         "artist": "Adrianna Geo",
         "category": "Renaissance"
     },
     {
-        "src": "./assets/romanticism.jpg",
+        "src": "./images/romanticism.jpg",
         "artist": "Birmingham Museums Trust",
         "category": "Romanticism"
     },
     {
-        "src": "./assets/rustic.jpg",
+        "src": "./images/rustic.jpg",
         "artist": "Birmingham Museums Trust",
         "category": "Rustic"
     },
     {
-        "src": "./assets/street-art.jpg",
+        "src": "./images/street-art.jpg",
         "artist": "Jon Tyson",
         "category": "Street/Symbolism"
     },
     {
-        "src": "./assets/surrealism.jpg",
+        "src": "./images/surrealism.jpg",
         "artist": "Pixabay",
         "category": "Surrealism"
     }

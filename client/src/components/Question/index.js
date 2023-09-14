@@ -33,7 +33,7 @@ function Question() {
   
       return (
         <>
-        <div>
+        <Grid.Row>
           <div>Rating: {rating}</div>
           <input
             type='range'
@@ -47,12 +47,12 @@ function Question() {
             maxRating={5}
             rating={rating}
           />
-        </div>
-        <div>
+        </Grid.Row>
+        <Grid.Row>
         <Button primary onClick={onClickNext}>
             Next
           </Button>
-        </div>
+        </Grid.Row>
       </>
       )
   }
@@ -87,7 +87,9 @@ function Question() {
         <Grid.Row> <img src={currentImage.src} alt={currentImage.src} height = '200' width = '200' margin = '10px' padding = '10px'></img>
          </Grid.Row>
                  <Grid.Row>
-                  <RatingSlider />
+                    <Grid.Column>
+                      <RatingSlider />
+                    </Grid.Column>
                   </Grid.Row>
                  
                   <Grid.Row key='temp'>
