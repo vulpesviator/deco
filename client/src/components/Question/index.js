@@ -5,38 +5,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_IMAGES } from '../../utils/queries';
 
 
-export function RatingSlider() {
-  const [rating, setRating] = useState(1);
-
-  const handleChange = (e) => {
-    setRating(e.target.value);
-  };
-
-    return (
-      <>
-      <div>
-        <div>Rating: {rating}</div>
-        <input
-          type='range'
-          min={1}
-          max={5}
-          value={rating}
-          onChange={handleChange}
-        /><br />
-        <Rating
-          icon="star"
-          maxRating={5}
-          rating={rating}
-        />
-      </div>
-      <div>
-      <Button primary onClick={() => rating}>
-          Next
-        </Button>
-      </div>
-    </>
-    )
-}
+export 
 
 function Question() {
 
@@ -45,40 +14,54 @@ function Question() {
   const [isDisabled, setDisabled] = useState(true);
   const { loading, data } = useQuery(QUERY_IMAGES);
   const images = data?.images || [];
+  const currentImage = images[activeQuestion]
   console.log(images)
+  console.log(currentImage)
   
+  function RatingSlider() {
+    const [rating, setRating] = useState(1);
+    const onClickNext = (event) => {
+      event.preventDefault();
   
+      event.stopPropagation();
+      if (activeQuestion !== images.length - 1) { setActiveQuestion((prev) => prev + 1)
+        setDisabled(false)
+     } 
+     }
+    const handleChange = (e) => {
+      setRating(e.target.value);
+    };
+  
+      return (
+        <>
+        <div>
+          <div>Rating: {rating}</div>
+          <input
+            type='range'
+            min={1}
+            max={5}
+            value={rating}
+            onChange={handleChange}
+          /><br />
+          <Rating
+            icon="star"
+            maxRating={5}
+            rating={rating}
+          />
+        </div>
+        <div>
+        <Button primary onClick={onClickNext}>
+            Next
+          </Button>
+        </div>
+      </>
+      )
+  }
    
- 
 
-// const text = questions.map((question) => question.text)
-// console.log('questions', questions)
-// console.log(text, 'text')
-
-// const images = questions.map((question) => 
-// question.image);
-//   console.log(images, "images");
-
-// console.log("images at active q", images[activeQuestion])
-// console.log(activeQuestion, 'active question')
-//  console.log(questions.length, 'questions length')
-
-
-
-
-
-
-  const onClickNext = (event) => {
-    event.preventDefault();
-
-    event.stopPropagation();
-    if (activeQuestion !== images.length - 1) { setActiveQuestion((prev) => prev + 1)
-      setDisabled(false)
-   } 
-   }
 
    const showResults = () => {
-    if (activeQuestion === 4) 
+    if (activeQuestion === 18) 
     {
       return (
       <Button className="primary" to="/profile">
