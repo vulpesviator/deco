@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Container, Grid, Header, Radio, Rating, Button } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
 import { QUERY_IMAGES } from '../../utils/queries';
+import {Routes, useNavigate, Navigate} from 'react-router-dom';
 
 
 export 
 
 function Question() {
-
+  
   const [activeQuestion, setActiveQuestion] = useState(0);
   
   const [isDisabled, setDisabled] = useState(true);
@@ -20,7 +21,24 @@ function Question() {
   
   function RatingSlider() {
     const [rating, setRating] = useState(1);
+    const [userRating, setUserRating] = useState();
+    const ratingArray = []
+    const handleChange = (e) => {
+      setRating(e.target.value);
+      const userInput = e.target.value
+      ratingArray.push(userInput)
+      console.log('category:', currentImage.category.name, 'category ID:', currentImage.category._id, 'rating', userRating, )
+      // console.log('userRating STate:', userRating)
+      setUserRating(userInput)
+    };
+
+    console.log(userRating)
+   
+  //  const saveUserRating = () => {
+  //    ratingArray.push(userRating)
+  //  }
     const onClickNext = (event) => {
+      
       event.preventDefault();
   
       event.stopPropagation();
@@ -28,9 +46,6 @@ function Question() {
         setDisabled(false)
      } 
      }
-    const handleChange = (e) => {
-      setRating(e.target.value);
-    };
   
       return (
         <>
@@ -49,22 +64,31 @@ function Question() {
             rating={rating}
           />
         </div>
+        <Grid>
+        <Grid.Row>
         <div>
         <Button primary onClick={onClickNext}>
             Next
           </Button>
         </div>
+        </Grid.Row>
+        </Grid>
       </>
       )
   }
-   
 
+  const navigate = useNavigate();
+  const navigateProfile = () => {
+    // 👇️ navigate to /
+    navigate('/profile');
+  };
 
    const showResults = () => {
-    if (activeQuestion === 18) 
-    {
+ 
+    if (activeQuestion === 17) {
+    
       return (
-      <Button className="primary" to="/profile">
+      <Button className="primary" onClick={navigateProfile}>
             See Results
           </Button>
       );
