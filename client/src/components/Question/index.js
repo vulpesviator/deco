@@ -37,6 +37,11 @@ function Question() {
   if (activeQuestion === 17){
   setDisabled(true)
   }
+
+  const navigate = useNavigate();
+  const navigateProfile = () => {
+    navigate('/profile');
+  };
     const onClickNext = (event) => {
       
       event.preventDefault();
@@ -44,12 +49,15 @@ function Question() {
       event.stopPropagation();
       if (activeQuestion !== images.length - 1) { setActiveQuestion((prev) => prev + 1)
        
-     } 
+     } else if (isDisabled){
+       navigateProfile()
+     }
      }
   
       return (
         <>
         <div>
+          <Grid.Row>
           <div>Rating: {rating}</div>
           <input
             type='range'
@@ -63,36 +71,20 @@ function Question() {
             maxRating={5}
             rating={rating}
           />
+          </Grid.Row>
         </div>
-        <Grid>
-        <Grid.Row>
-        <div>
-        <Button primary onClick={onClickNext} style={{ 'display': isDisabled? 'none' : 'block' }}>
-            Next
+       <Grid.Row>
+        <Button primary onClick={onClickNext} >
+           { isDisabled? 'See Your Results' : 'Next'}
           </Button>
-        </div>
-        </Grid.Row>
-        </Grid>
+          </Grid.Row>
       </>
       )
   }
 
-  const navigate = useNavigate();
-  const navigateProfile = () => {
-    navigate('/profile');
-  };
-  
-   const showResults = () => {
  
-    if (activeQuestion === 17) {
-    
-      return (
-      <Button className="primary" onClick={navigateProfile}>
-            See Results
-          </Button>
-      );
-    } 
-  } 
+  
+   
 
 
   return (
@@ -110,12 +102,12 @@ function Question() {
        
         <Grid.Row> <img src={currentImage.src} alt={currentImage.src} height = '200' width = '200' margin = '10px' padding = '10px'></img>
          </Grid.Row>
-                 <Grid.Row>
+                
                   <RatingSlider />
-                  </Grid.Row>
+               
                  
                   <Grid.Row key='temp'>
-            <div>{showResults()}</div>
+            
             </Grid.Row>
                   </Grid>  
              </div>
