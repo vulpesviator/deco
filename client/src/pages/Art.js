@@ -7,7 +7,7 @@ import ImageCarousel from "../components/ImageCarousel";
 
 function Art() {
   const { categoryId } = useParams();
-  console.log(categoryId);
+  
 
   const { loading, data } = useQuery(QUERY_CATEGORY_IMAGES, {
     variables: { categoryId: categoryId },
@@ -18,7 +18,7 @@ function Art() {
   );
 
   const category = data?.category || [];
-
+  console.log(category);
   return (
     <div style={{ margin: 20 }}>
       <Segment attached="top">
@@ -27,7 +27,7 @@ function Art() {
       </Segment>
 
       <Segment attached="bottom">
-        <ImageCarousel images={category.images} />
+        <ImageCarousel images={category.image} />
       </Segment>
     </div>
   );

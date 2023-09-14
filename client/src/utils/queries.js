@@ -5,7 +5,7 @@ export const QUERY_CATEGORY_IMAGES = gql`
     query CategoryImages($categoryId: ID!) {
         category(_id: $categoryId) {
             name
-            images {
+            image {
                 _id
                 src
                 artist

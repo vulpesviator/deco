@@ -39,7 +39,7 @@ const resolvers = {
   Category: {
     image: async (parent) => {
       const categoryId = parent._id;
-      const image = await Image.find({ category: categoryId });
+      const image = await Image.findOne({ category: categoryId });
       return image;
     },
   },
