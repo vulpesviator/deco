@@ -62,7 +62,7 @@ function CategoryMenu() {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Link to="/art/${item.id}">
+            <Link to={`/art/${item._id}`}>
               <Icon name='th' />
               See more examples?
             </Link>

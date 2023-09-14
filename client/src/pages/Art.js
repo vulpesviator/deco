@@ -13,9 +13,11 @@ function Art() {
     variables: { categoryId: categoryId },
   });
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+     <div>Loading...</div>
+  );
 
-  const category = data.category;
+  const category = data?.category || [];
 
   return (
     <div style={{ margin: 20 }}>

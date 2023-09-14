@@ -6,6 +6,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const ImageCarousel = ({ images }) => {
+  if (!images || !images.length) {
+    return <div>No images available</div>;
+  }
+  
   const settings = {
     adaptiveHeight: true,
     centerMode: true,
