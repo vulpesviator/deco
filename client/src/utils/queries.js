@@ -1,12 +1,29 @@
 import { gql } from '@apollo/client';
 
 
+export const QUERY_CATEGORY_IMAGES = gql`
+    query CategoryImages($categoryId: ID!) {
+        category(_id: $categoryId) {
+            name
+            image {
+                _id
+                src
+                artist
+            }
+        }
+    }
+`;
+
 export const QUERY_CATEGORIES = gql`
   {
     categories {
       _id
       name
       description
+      image {
+        _id
+        src
+      }
     }
   }
 `;

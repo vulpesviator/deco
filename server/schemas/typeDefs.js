@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
+    image: Image
   }
 
   type Image {
