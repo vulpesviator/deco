@@ -1,33 +1,23 @@
 const db = require('../config/connection');
 
-const {Question, Category, Image} = require('../models');
-const categorySeeds = require('./categories.json');
+const {Category, Image} = require('../models');
+const categorySeedsPlain = require('./categories.json');
 const imageSeedsPlain = require('./images.json');
-const questionSeedsPlain = require('./questions.json');
-
 
 
 db.once('open', async () => {
     try{
         await Category.deleteMany({});
-        await Question.deleteMany({});
         await Image.deleteMany({});
-        await Category.create(categorySeeds);
+        await Category.create(categorySeedsPlain);
         const categories = await Category.find({});
-        const imageSeeds = imageSeedsPlain.map(({src, category}) => {
-            return { src, category: categories.find(({name}) => name === category) }
+        const imageSeeds = imageSeedsPlain.map(({src, artist, category}) => {
+            return { src, artist, category: categories.find(({name}) => name === category) }
         });
         await Image.insertMany(imageSeeds);
-        const images = await Image.find({});
-        const questionSeeds = questionSeedsPlain.map(({text, image}) => {
-            return { text, image: image.map((imageSrc) => {
-                return images.find(({src}) => src === imageSrc)
-            })}
-        });
-        await Question.insertMany(questionSeeds);
         
         
-        console.log('categories seeded!', 'images seeded!', 'questions seeded!');
+        console.log('categories seeded!', 'images seeded!');
         
         process.exit();
     }

@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 import Auth from "../../utils/auth";
 // import Categories from "../../pages/Categories";
 import { Link } from "react-router-dom";
-import { Button, Menu, Image, Dropdown } from "semantic-ui-react";
+import { Button, Menu, Image } from "semantic-ui-react";
 import NavLg from "../NavLg";
 import NavMb from "../NavMb";
 import Logo from "../../assets/deco.png"
@@ -21,7 +21,7 @@ export default function Nav() {
             to="/"
             fitted
           >
-            <Image src={Logo} alt="deco" />
+            <Image src={Logo} alt="deco" height="50px"/>
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
@@ -36,7 +36,7 @@ export default function Nav() {
               as={Link}
               to="/profile"
             >
-              <Button className="primary">username's Profile</Button>
+              <Button className="primary">Profile</Button>
             </Menu.Item>
             <Menu.Item
               name="quiz"

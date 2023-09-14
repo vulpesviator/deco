@@ -39,6 +39,8 @@ query Images {
     _id
     category {
       _id
+      name
+      description
     }
     
   }

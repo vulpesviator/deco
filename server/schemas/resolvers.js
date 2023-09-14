@@ -1,17 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Category, Image, Question } = require('../models');
+const { User, Category, Image, UserScore } = require('../models');
 const { signToken } = require('../utils/auth');
-const { populate } = require('../models/User');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
 
 const resolvers = {
   Query: {
-    questions: async () => {
-      return await Question.find();
-    },
-    question: async (parent, {_id}) => {
-      return await Question.findById(_id);
-    },
     categories: async () => {
       return await Category.find();
     },
@@ -19,19 +12,28 @@ const resolvers = {
       return await Category.findById(_id);
     },
     images: async () => {
-      return await Image.find();
+      var result = await Image.find().populate('category');
+   
+      return result
     },
     image: async (parent, { _id }) => {
-      return await Image.findById(_id);
+      return await Image.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user.userId)
+        let user = await User.findById(context.user._id)
         return user;
       }
 
       throw new AuthenticationError('Not logged in');
     },
+    userScore: async (parent, args, context) => {
+      if (context.user) {
+        let user = await User.findById(context.user._id)
+        let userScore = await User.findOneAndUpdate()
+        
+      }
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -47,6 +49,12 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // addUserScore: async (parent, { }) => {
+
+    //   // get score and category
+    //   // update the userscore model
+      
+    // },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

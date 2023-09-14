@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, Header, Radio, Button } from 'semantic-ui-react';
+import { Container, Grid, Header, Radio, Rating, Button } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
-import { QUERY_QUESTIONS } from '../../utils/queries';
-import RenderImages from '../Quiz Images';
+import { QUERY_IMAGES } from '../../utils/queries';
+
 
 export function RatingSlider() {
   const [rating, setRating] = useState(1);
@@ -42,42 +42,44 @@ function Question() {
 
   const [activeQuestion, setActiveQuestion] = useState(0);
   
-  const { loading, data } = useQuery(QUERY_QUESTIONS);
-
   const [isDisabled, setDisabled] = useState(true);
+  const { loading, data } = useQuery(QUERY_IMAGES);
+  const images = data?.images || [];
+  console.log(images)
+  
+  
+   
+ 
 
-  const questions = data?.questions || [];
-  console.log(questions);
+// const text = questions.map((question) => question.text)
+// console.log('questions', questions)
+// console.log(text, 'text')
 
-  useEffect(() => {
-    if (data) {
-    } else if (loading) {
-      console.log("LOADING..");
-    }
-  }, [data, loading]);
-
-const text = questions.map((question) => question.text)
-console.log('questions', questions)
-console.log(text, 'text')
-
-const images = questions.map((question) => question.image)
-console.log(images[activeQuestion], 'images')
+// const images = questions.map((question) => 
+// question.image);
+//   console.log(images, "images");
 
 // console.log("images at active q", images[activeQuestion])
-console.log(activeQuestion, 'active question')
- console.log(questions.length, 'questions length')
- 
+// console.log(activeQuestion, 'active question')
+//  console.log(questions.length, 'questions length')
+
+
+
+
+
+
   const onClickNext = (event) => {
     event.preventDefault();
 
     event.stopPropagation();
-    if (activeQuestion !== questions.length - 1) { setActiveQuestion((prev) => prev + 1)
+    if (activeQuestion !== images.length - 1) { setActiveQuestion((prev) => prev + 1)
       setDisabled(false)
    } 
    }
 
    const showResults = () => {
-    if (activeQuestion === 4) {
+    if (activeQuestion === 4) 
+    {
       return (
       <Button className="primary" to="/profile">
             See Results
@@ -85,6 +87,7 @@ console.log(activeQuestion, 'active question')
       );
     } 
   } 
+
 
   return (
     <Container>
@@ -94,27 +97,22 @@ console.log(activeQuestion, 'active question')
         <div>
 
       <Header as='h3' textAlign='center'>
-       <p> {text[activeQuestion]}</p>
+       <p> Rate the following Artworks</p>
       </Header>
 
          <Grid textAlign='center'>
-       {images[activeQuestion].map((image) => {
-         return <Grid.Row>    <Radio></Radio> <img src={image.src} alt={image.src} height = '200' width = '200' margin = '10px' padding = '10px'></img>
+       
+        <Grid.Row> <img src={currentImage.src} alt={currentImage.src} height = '200' width = '200' margin = '10px' padding = '10px'></img>
          </Grid.Row>
-       })}
-        </Grid>
-         
-            <Grid.Column key='temp'>
-            <div>{showResults()}</div>
-            </Grid.Column>
-         <div>
+                 <Grid.Row>
                   <RatingSlider />
-                  </div>
-      
-      
-        
-    
-      </div>
+                  </Grid.Row>
+                 
+                  <Grid.Row key='temp'>
+            <div>{showResults()}</div>
+            </Grid.Row>
+                  </Grid>  
+             </div>
       )}
     </Container>
   );

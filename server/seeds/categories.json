@@ -1,82 +1,102 @@
 [
     {
         "name": "Abstract",
+        "scoreCategory": "abstract",
         "description": "Abstract art uses visual language of shape, form, color and line to create a composition which may exist with a degree of independence from visual references in the world. Abstraction indicates a departure from reality in depiction of imagery in art. This departure from accurate representation can be slight, partial, or complete. Abstraction exists along a continuum. Even art that aims for verisimilitude of the highest degree can be said to be abstract, at least theoretically, since perfect representation is impossible. Artwork which takes liberties, e.g. altering color or form in ways that are conspicuous, can be said to be partially abstract."
     },
     {
         "name": "Art Deco",
+        "scoreCategory": "artDeco",
         "description": "Art Deco, short for the French Arts Décoratifs, and sometimes referred to simply as Deco, is a style of visual arts, architecture, and product design, that first appeared in France in the 1910s (just before World War I), and flourished in the United States and Europe during the 1920s to early 1930s. Art Deco combined modern styles with fine craftsmanship and rich materials. During its heyday, it represented luxury, glamour, exuberance, and faith in social and technological progress."
     },
     {
         "name": "Art Nouveau",
+        "scoreCategory": "artNouveau",
         "description": "Art Nouveau is an international style of art, architecture, and applied art, especially the decorative arts. It was often inspired by natural forms such as the sinuous curves of plants and flowers. Other characteristics of Art Nouveau were a sense of dynamism and movement, often given by asymmetry or whiplash lines, and the use of modern materials, particularly iron, glass, ceramics and later concrete, to create unusual forms and larger open spaces. It was popular between 1890 and 1910 during the Belle Époque period, and was a reaction against the academic art, eclecticism and historicism of 19th century architecture and decoration."
     },
     {
         "name": "Conceptual",
+        "scoreCategory": "conceptual",
         "description": "Conceptual art, also referred to as conceptualism, is art in which the concepts or ideas involved in the work take precedence over traditional aesthetic, technical, and material concerns. "
     },
     {
         "name": "Constructivism",
+        "scoreCategory": "constructivism",
         "description": "Abstract and austere, constructivist art aimed to reflect modern industrial society and urban space. The movement rejected decorative stylization in favour of the industrial assemblage of materials. Constructivists were in favour of art for propaganda and social purposes, and were associated with Soviet socialism, the Bolsheviks and the Russian avant-garde."
     },
     {
         "name": "Expressionism",
+        "scoreCategory": "expressionism",
         "description": "Expressionism is a modernist movement, initially in poetry and painting, originating in Northern Europe around the beginning of the 20th century. Its typical trait is to present the world solely from a subjective perspective, distorting it radically for emotional effect in order to evoke moods or ideas. Expressionist artists have sought to express the meaning of emotional experience rather than physical reality."
     },
     {
         "name": "Gothic",
+        "scoreCategory": "gothic",
         "description": "With soaring vaults and resplendent stained glass windows, Gothic architecture attempted to recreate a heavenly environment on earth. Elaborating on Romanesque styles, Gothic builders, beginning in the 12th century, further developed the use of flying buttresses and decorative tracery between stained glass windows thus creating interior spaces that dwarfed worshippers and dazzled their senses."
     },
     {
         "name": "Impressionism",
+        "scoreCategory": "impressionism",
         "description": "Impressionism is perhaps the most important movement in the whole of modern painting. At some point in the 1860s, a group of young artists decided to paint, very simply, what they saw, thought, and felt. They were not interested in painting history, mythology, or the lives of great men, and they did not seek perfection in visual appearances. Instead, as their name suggests, the Impressionists tried to get down on canvas an “impression” of how a landscape, thing, or person appeared to them at a certain moment in time. This often meant using much lighter and looser brushwork than painters had up until that point, and painting out of doors, en plein air. The Impressionists also rejected official exhibitions and painting competitions set up by the French government, instead organizing their own group exhibitions, which the public were initially very hostile to. All of these moves predicted the emergence of modern art, and the whole associated philosophy of the avant-garde."
     },
     {
         "name": "Mid-Century",
+        "scoreCategory": "midCentury",
         "description": "Searching for art styles fitting within the “Mid-Century” mold usually means seeking out styles from the 1940s, 1950s, and 1960s. The early 1970s may also be considered within the mid-century modern art styles. These specific art styles may be seen through the homes, the furniture, and the decor. Actual art created during the mid-century modern era tends to vary greatly. Jackson Pollack and Andy Warhol both fit within this category, yet the pieces they created are rather different."
     },
     {
         "name": "Minimalism",
+        "scoreCategory": "minimalism",
         "description": "Minimalism describes movements in various forms of art and design, especially visual art and music, where the work is set out to expose the essence, essentials or identity of a subject through eliminating all non-essential forms, features or concepts."
     },
     {
         "name": "Modernism",
+        "scoreCategory": "modernism",
         "description": "Modern Art, also referred to as Modernism, was viewed as both an art and philosophical movement at the time of its emergence. This movement reflected the immense longing of artists to produce new forms of art, philosophy, and social structures that precisely reflected the newly developing world. Modernism included a variety of different styles, techniques, and media within the broad movement. However, the fundamental principle that was demonstrated in all the artworks of each movement within Modernism was a complete dismissal of history and traditional concepts associated with realism."
     },
     {
         "name": "Neoclassicism",
+        "scoreCategory": "neoclassicism",
         "description": "Neoclassicism is the 18th and 19th century movement that developed in Europe as a reaction to the excesses of Baroque and Rococo styles that were dominant in the previous era. The movement sought to return to the classical beauty and magnificence of the Ancient Greece and the Roman Empire. Neoclassical art is based on simplicity and symmetry and takes its inspiration from the German art historian Johann Joachim Winckelmann who believed that art should aim at the ideal forms and beauty of Greek art. "
     },
     {
         "name": "Pop Art",
+        "scoreCategory": "popArt",
         "description": "Pop Art's refreshing reintroduction of identifiable imagery, drawn from media and popular culture, was a major shift for the direction of modernism. With roots in Neo-Dada and other movements that questioned the very definition of “art” itself, Pop was birthed in the United Kingdom in the 1950s amidst a postwar socio-political climate where artists turned toward celebrating commonplace objects and elevating the everyday to the level of fine art. American artists Andy Warhol, Roy Lichtenstein, James Rosenquist and others would soon follow suit to become the most famous champions of the movement in their own rejection of traditional historic artistic subject matter in lieu of contemporary society's ever-present infiltration of mass manufactured products and images that dominated the visual realm. Perhaps owing to the incorporation of commercial images, Pop Art has become one of the most recognizable styles of modern art."
     },
     {
         "name": "Postmodern",
+        "scoreCategory": "postModern",
         "description": "Postmodern art rejected the traditional values of modernism, and instead embraced experimentation with new media and art forms including intermedia, installation art, conceptual art, multimedia, performance art, and identity politics. Using these new forms, postmodernist artists have stretched the definition of art to embrace the idea that “anything can be art”. "
     },
     {
         "name": "Realism",
+        "scoreCategory": "realism",
         "description": "Though never a coherent group, Realism is recognized as the first modern movement in art, which rejected traditional forms of art, literature, and social organization as outmoded in the wake of the Enlightenment and the Industrial Revolution. Beginning in France in the 1840s, Realism revolutionized painting, expanding conceptions of what constituted art. Working in a chaotic era marked by revolution and widespread social change, Realist painters replaced the idealistic images and literary conceits of traditional art with real-life events, giving the margins of society similar weight to grand history paintings and allegories. Their choice to bring everyday life into their canvases was an early manifestation of the avant-garde desire to merge art and life, and their rejection of pictorial techniques, like perspective, prefigured the many 20th-century definitions and redefinitions of modernism."
     },
     {
         "name": "Renaissance",
+        "scoreCategory": "renaissance",
         "description": "The art of the Renaissance period in Europe (1400-1600 CE) includes some of the most recognisable and best-loved paintings and sculptures in the world. Masters were often skilled in both painting and sculpture, and by studying the art of antiquity and adding their theoretical knowledge of mathematical perspective and new painting techniques, they produced truly unique works of art. Realism, detail, drama, and subtle layers of meaning became features of religious and secular art."
     },
     {
         "name": "Romanticism",
+        "scoreCategory": "romanticism",
         "description": "At the end of the 18th century and well into the 19th, Romanticism quickly spread throughout Europe and the United States to challenge the rational ideal held so tightly during the Enlightenment. The artists emphasized that sense and emotions - not simply reason and order - were equally important means of understanding and experiencing the world. Romanticism celebrated the individual imagination and intuition in the enduring search for individual rights and liberty. Its ideals of the creative, subjective powers of the artist fueled avant-garde movements well into the 20th century."
     },
     {
         "name": "Rustic",
+        "scoreCategory": "rustic",
         "description": "Rustic style, in decorative arts, stemmed from any ruralizing influence; more precisely, a type of furniture made of wood or metal, the main components of which are carved and fretted to resemble the branches of trees. Stemming from the idealization of nature and the “simple life” that occurred in the mid-18th century, the vogue for this kind of product persisted well into the 20th century."
     },
     {
         "name": "Street/Symbolism",
+        "scoreCategory": "streetSymbolism",
         "description": "Street art is a form of artwork that is displayed in public on surrounding buildings, on streets, trains and other publicly viewed surfaces. Many instances come in the form of guerrilla art, which is intended to make a personal statement about the society that the artist lives within. The work has moved from the beginnings of graffiti and vandalism to new modes where artists work to bring messages, or just beauty, to an audience."
     },
     {
         "name": "Surrealism",
+        "scoreCategory": "surrealism",
         "description": "The Surrealists sought to channel the unconscious as a means to unlock the power of the imagination. Disdaining rationalism and literary realism, and powerfully influenced by psychoanalysis, the Surrealists believed the rational mind repressed the power of the imagination, weighing it down with taboos. Influenced also by Karl Marx, they hoped that the psyche had the power to reveal the contradictions in the everyday world and spur on revolution. Their emphasis on the power of personal imagination puts them in the tradition of Romanticism, but unlike their forebears, they believed that revelations could be found on the street and in everyday life. The Surrealist impulse to tap the unconscious mind, and their interests in myth and primitivism, went on to shape many later movements, and the style remains influential to this today."
     }
 ]

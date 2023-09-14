@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const UserScoreSchema = require('./UserScore')
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
@@ -24,7 +25,9 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  // fav categories
+  userScore: {
+    type: UserScoreSchema
+  }
 });
 
 // set up pre-save middleware to create password

@@ -12,8 +12,6 @@ import { Card, Icon, Image } from "semantic-ui-react";
 
 function CategoryMenu() {
   const cardColor = ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey"];
-
-  const src = "https://react.semantic-ui.com/images/avatar/large/matthew.png"
   
   const [state, dispatch] = useStoreContext();
 
@@ -51,7 +49,7 @@ function CategoryMenu() {
       <>
       {categories.map((item) => (
         <Card color={cardColor[0]} key={item.id}>
-          <Image src='${src}' wrapped ui={false} />
+          <Image src='{item.src}' wrapped ui={false} />
           <Card.Content>
             <Card.Header>{item.name}</Card.Header>
             <Card.Meta>

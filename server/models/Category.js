@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const categorySchema = new Schema({
+  scoreCategory: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,
