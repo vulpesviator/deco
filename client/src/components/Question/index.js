@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Container, Grid, Header, Radio, Rating, Button } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';

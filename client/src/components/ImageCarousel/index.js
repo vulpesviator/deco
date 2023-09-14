@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const ImageCarousel = () => {
+const ImageCarousel = ({ images }) => {
   const settings = {
     adaptiveHeight: true,
     centerMode: true,
@@ -58,24 +58,11 @@ const ImageCarousel = () => {
         `}
       </style>
       <Slider {...settings}>
-        <div>
-          <img src="https://picsum.photos/id/1018/400/300" />
-        </div>
-        <div>
-          <img src="https://picsum.photos/id/1015/400/300" />
-        </div>
-        <div>
-          <img src="https://picsum.photos/id/1019/400/300" />
-        </div>
-        <div>
-          <img src="https://picsum.photos/id/1029/400/300" />
-        </div>
-        <div>
-          <img src="https://picsum.photos/id/1021/400/300" />
-        </div>
-        <div>
-          <img src="https://picsum.photos/id/1039/400/300" />
-        </div>
+      {images.map((image) => ( 
+                    <div key={image._id}>
+                        <img src={image.src} alt={image.artist} />
+                    </div>
+                ))}
       </Slider>
     </Container>
   );

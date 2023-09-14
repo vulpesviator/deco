@@ -6,11 +6,12 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      return await Category.find().populate('image');
     },
     category: async (parent, {_id}) => {
       return await Category.findById(_id);
     },
+    
     images: async () => {
       var result = await Image.find().populate('category');
    
@@ -34,6 +35,13 @@ const resolvers = {
         
       }
     }
+  },
+  Category: {
+    image: async (parent) => {
+      const categoryId = parent._id;
+      const image = await Image.findOne({ category: categoryId });
+      return image;
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {

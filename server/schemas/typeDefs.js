@@ -5,13 +5,14 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
+    image: Image
   }
 
   type Image {
     _id: ID
     src: String
     artist: String
-    category: [Category]
+    category: Category
   }
 
   type User {

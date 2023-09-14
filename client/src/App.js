@@ -75,7 +75,7 @@ function App() {
                 element={<ProfilePage />}
               />
               <Route
-                path="/art"
+                path="/art/:categoryId"
                 element={<Art />}
               />
             </Routes>
