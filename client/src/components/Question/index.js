@@ -12,7 +12,7 @@ function Question() {
   
   const [activeQuestion, setActiveQuestion] = useState(0);
   
-  const [isDisabled, setDisabled] = useState(true);
+  const [isDisabled, setDisabled] = useState(false);
   const { loading, data } = useQuery(QUERY_IMAGES);
   const images = data?.images || [];
   const currentImage = images[activeQuestion]
@@ -34,16 +34,16 @@ function Question() {
 
     console.log(userRating)
    
-  //  const saveUserRating = () => {
-  //    ratingArray.push(userRating)
-  //  }
+  if (activeQuestion === 17){
+  setDisabled(true)
+  }
     const onClickNext = (event) => {
       
       event.preventDefault();
   
       event.stopPropagation();
       if (activeQuestion !== images.length - 1) { setActiveQuestion((prev) => prev + 1)
-        setDisabled(false)
+       
      } 
      }
   
@@ -67,7 +67,7 @@ function Question() {
         <Grid>
         <Grid.Row>
         <div>
-        <Button primary onClick={onClickNext}>
+        <Button primary onClick={onClickNext} style={{ 'display': isDisabled? 'none' : 'block' }}>
             Next
           </Button>
         </div>
@@ -79,10 +79,9 @@ function Question() {
 
   const navigate = useNavigate();
   const navigateProfile = () => {
-    // 👇️ navigate to /
     navigate('/profile');
   };
-
+  
    const showResults = () => {
  
     if (activeQuestion === 17) {
