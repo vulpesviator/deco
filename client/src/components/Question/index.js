@@ -17,10 +17,21 @@ export function Question() {
   const [isDisabled, setDisabled] = useState(false);
 
   const { loading, data } = useQuery(QUERY_IMAGES);
-  const images = data?.images || [];
 
+useEffect(() => {
+  if (data) {
+    console.log('we have data')
+  }
+  else if (loading){
+    console.log("LOADING");
+  }
+
+}, [loading, data,])
+
+const images = data?.images || [];
+
+console.log(images)
   const currentImage = images[activeQuestion];
-
   function RatingSlider() {
     const [rating, setRating] = useState(1);
     const handleChange = (e) => {
@@ -34,7 +45,7 @@ export function Question() {
 
     const [updateScore, { error }] = useMutation(UPDATE_SCORE);
 
-    if (activeQuestion === 17) {
+    if (activeQuestion === 19) {
       setDisabled(true);
     }
 
@@ -45,8 +56,8 @@ export function Question() {
     
     async function onClickNext(event) {
       event.preventDefault();
-      event.stopPropagation();
-
+      
+    
       const currentCategory = currentImage.category.scoreCategory;
       console.log("CATEGORY", currentCategory);
 
@@ -54,6 +65,8 @@ export function Question() {
         const { data } = await updateScore({
           variables: {rating: parseInt(rating), category: currentCategory.toString() },
         });
+        console.log(data)
+
 
       } catch (error) {
         console.log(error);
