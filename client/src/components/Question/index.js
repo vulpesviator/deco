@@ -18,7 +18,7 @@ export function Question() {
 
   const { loading, data } = useQuery(QUERY_IMAGES);
   const images = data?.images || [];
-
+console.log(images)
   const currentImage = images[activeQuestion];
 
   function RatingSlider() {
@@ -34,7 +34,7 @@ export function Question() {
 
     const [updateScore, { error }] = useMutation(UPDATE_SCORE);
 
-    if (activeQuestion === 17) {
+    if (activeQuestion === 19) {
       setDisabled(true);
     }
 
