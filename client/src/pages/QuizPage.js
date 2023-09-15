@@ -9,7 +9,7 @@ function QuizPage() {
   const [activeQuestion, setActiveQuestion] = useState(0)
   // const [selectedAnswer, setSelectedAnswer] = useState('')
 
-  const [ questions ] = useQuery(QUERY_QUESTIONS);
+  // const [ questions ] = useQuery(QUERY_QUESTIONS);
 
   // {activeQuestion.questions.map((question) => (
 
@@ -17,43 +17,30 @@ function QuizPage() {
 
   // const questionNum = questions[0] + 1
 
-  const onClickNext = () => {
-    setActiveQuestion((prev) => prev + 1)
-  }
+  // const onClickNext = () => {
+  //   setActiveQuestion((prev) => prev + 1)
+  // }
 
-  const showResults = () => {
-    if (activeQuestion === questions.length) {
-      return (
-      <Button className="primary" as={Link} to="/profile">
-            See Results
-          </Button>
-      );
-    } else {
-      return (
-      <Button className="primary" onClick={onClickNext}>
-                Next
-              </Button>
-      );
-    }
-  }
+ 
 
-
+return (
   <Container>
-      {questions.map((question, index) => (
-        <div key={index}>
+      
+        <div key={'index'}>
           <Header as='h2' textAlign='center'>
-            Question #{index + 1} of {questions.length}
+            {/* Question #{index + 1} of {questions.length} */}
           </Header>
           <Grid textAlign='center'>
             <Grid.Row>
-              <Question {...question} />
+              <Question  />
             </Grid.Row>
-             {showResults()}
+             {/* {showResults()} */}
           </Grid>
         </div>
-      ))}
+      
     </Container>
 
-  }
   
+  );
+}
 export default QuizPage;

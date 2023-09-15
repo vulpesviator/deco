@@ -3,9 +3,10 @@ import { useMediaQuery } from 'react-responsive'
 import Auth from "../../utils/auth";
 // import Categories from "../../pages/Categories";
 import { Link } from "react-router-dom";
-import { Button, Menu, Dropdown } from "semantic-ui-react";
+import { Button, Menu, Image } from "semantic-ui-react";
 import NavLg from "../NavLg";
 import NavMb from "../NavMb";
+import Logo from "../../assets/deco.png"
 
 export default function Nav() {
   
@@ -18,14 +19,15 @@ export default function Nav() {
             name="home"
             as={Link}
             to="/"
+            fitted
           >
-            <img src="deco.svg" alt="" />
+            <Image src={Logo} alt="deco" height="50px"/>
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
               name="categories"
               as={Link}
-              to="/browse"
+              to="/categories"
             />
 
             
@@ -34,7 +36,7 @@ export default function Nav() {
               as={Link}
               to="/profile"
             >
-              <Button className="primary">username's Profile</Button>
+              <Button className="primary">Profile</Button>
             </Menu.Item>
             <Menu.Item
               name="quiz"
@@ -54,7 +56,8 @@ export default function Nav() {
             as={Link}
             to="/"
           >
-            <img src="deco.svg" alt="" />
+            <img src={Logo} alt="" />
+
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
@@ -80,7 +83,7 @@ export default function Nav() {
               as={Link}
               to="/quiz"
             >
-              <Button className="secondary text-dark">Take the Test</Button>
+              <Button className="secondary">Take the Test</Button>
             </Menu.Item>
           </Menu.Menu>
         </>

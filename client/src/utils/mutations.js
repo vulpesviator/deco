@@ -31,3 +31,34 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const UPDATE_SCORE = gql`
+  mutation updateUserScore($rating: Int! $category: String!) {
+    updateUserScore(rating: $rating category: $category) {
+      _id
+      userScore {
+        _id
+        abstract
+        artDeco
+        artNouveau
+        conceptual
+        constructivism
+        expressionism
+        gothic
+        impressionism 
+        midCentury
+        minimalism
+        modernism
+        neoclassicism
+        popArt
+        postModern
+        realism
+        renaissance
+        romanticism
+        rustic
+        streetSymbolism
+        surrealism
+      }
+    }
+  }
+`;

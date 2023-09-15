@@ -1,99 +1,49 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Category, Artwork, Artist } = require('../models');
+const { User, Category, Image, UserScore } = require('../models');
 const { signToken } = require('../utils/auth');
-const { populate } = require('../models/User');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
 
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find()
+      return await Category.find().populate('image');
     },
-    category: async (parent, {_id, name}) => {
-      const params = {};
-
-      if (_id){
-        return await Category.findById(_id)
-      }
-
-      if (name){
-        params.name = name
-      }
-
-      return await Category.find(params)
+    category: async (parent, {_id}) => {
+      return await Category.findById(_id);
     },
-    artworks: async (parent, { category, artist }) => {
-      const params = {};
-
-      if (category) {
-        params.category = category;
-      }
-
-      if (artist) {
-        params.artist = artist
-      }
-
-      return await Artwork.find(params).populate('category').populate({
-        path: 'artist',
-        select: '_id'
-      });
+    
+    images: async () => {
+      var result = await Image.find().populate('category');
+   
+      return result
     },
-    artwork: async (parent, { _id, title }) => {
-      const params = {};
-
-      if (_id){
-        return await Artwork.findById(_id).populate('category').populate({
-          path: 'artist',
-          select: '_id'
-        });
-      }
-
-      if (title){
-        params.title = title
-      }
-
-      return await Artwork.find(params).populate('category').populate({
-        path: 'artist',
-        select: '_id'
-      });
-    },
-    artist: async (parent, { _id, name }) => {
-      const params = {};
-
-      if (_id) {
-        return await Artist.findById(_id).populate('category').populate({
-          path: 'artworks',
-          select: '_id'
-        })
-      }
-
-      if (name) {
-        params.name = name;
-      }
-      return await Artist.find(params).populate('category').populate({
-        path: 'artworks',
-        select: '_id'
-      });
-    },
-    artists: async () => {
-      return await Artist.find();
+    image: async (parent, { _id }) => {
+      return await Image.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user.userId)
+        let user = await User.findById(context.user._id);
         return user;
       }
 
       throw new AuthenticationError('Not logged in');
+    }
+  },
+  Category: {
+    image: async (parent) => {
+      const categoryId = parent._id;
+      const image = await Image.findOne({ category: categoryId });
+      return image;
     },
   },
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
+      const user = await User.create({...args, userScore: {}});
       const token = signToken(user);
-
+      
       return { token, user };
     },
+
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
@@ -101,6 +51,15 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+    updateUserScore: async (parent, { rating, category }, context) => {
+      const currentUser = await User.findById(context.user._id);
+      currentUser.userScore[category] = rating;
+      
+      const updated = await currentUser.save();
+      return updated;
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

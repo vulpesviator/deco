@@ -1,0 +1,92 @@
+[
+    {
+        "src": "/images/abstract.jpg",
+        "artist": "Nathan Dumlao",
+        "category": "Abstract"
+    },
+    {
+        "src": "/images/art-deco.jpg",
+        "artist": "McGill Library",
+        "category": "Art Deco"
+    },
+    {
+        "src": "/images/art-nouveau.jpg",
+        "artist": "Europeana",
+        "category": "Art Nouveau"
+    },
+    {
+        "src": "/images/expressionism.jpg",
+        "artist": "Steve Johnson",
+        "category": "Expressionism"
+    },
+    {
+        "src": "/images/gothic.jpg",
+        "artist": "Jonas Jaeken",
+        "category": "Gothic"
+    },
+    {
+        "src": "/images/impressionism.jpg",
+        "artist": "Europeana",
+        "category": "Impressionism"
+    },
+    {
+        "src": "/images/mid-century-modern.jpg",
+        "artist": "Omar Flores",
+        "category": "Mid-Century"
+    },
+    {
+        "src": "/images/minimalism.jpg",
+        "artist": "Annie Spratt",
+        "category": "Minimalism"
+    },
+    {
+        "src": "/images/modern.jpg",
+        "artist": "Birmingham Museums Trust",
+        "category": "Modernism"
+    },
+    {
+        "src": "/images/neoclassical.jpg",
+        "artist": "Europeana",
+        "category": "Neoclassicism"
+    },
+    {
+        "src": "/images/pop-art.jpg",
+        "artist": "Tim Hufner",
+        "category": "Pop Art"
+    },
+    {
+        "src": "/images/postmodern.jpg",
+        "artist": "Jazmin Quaynor",
+        "category": "Postmodern"
+    },
+    {
+        "src": "/images/realism.jpg",
+        "artist": "Europeana",
+        "category": "Realism"
+    },
+    {
+        "src": "/images/renaissance.jpg",
+        "artist": "Adrianna Geo",
+        "category": "Renaissance"
+    },
+    {
+        "src": "/images/romanticism.jpg",
+        "artist": "Birmingham Museums Trust",
+        "category": "Romanticism"
+    },
+    {
+        "src": "/images/rustic.jpg",
+        "artist": "Birmingham Museums Trust",
+        "category": "Rustic"
+    },
+    {
+        "src": "/images/street-art.jpg",
+        "artist": "Jon Tyson",
+        "category": "Street/Symbolism"
+    },
+    {
+        "src": "/images/surrealism.jpg",
+        "artist": "Pixabay",
+        "category": "Surrealism"
+    }
+]
