@@ -26,8 +26,9 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "heroku-postbuild": "craco build --prod",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,9 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@craco/craco": "^7.1.0",
-    "@semantic-ui-react/craco-less": "^3.0.0"
   }
 }
