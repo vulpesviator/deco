@@ -19,6 +19,7 @@ export const QUERY_CATEGORIES = gql`
     categories {
       _id
       name
+      scoreCategory
       description
       image {
         _id
@@ -58,6 +59,7 @@ query Images {
       _id
       name
       description
+      scoreCategory
     }
     
   }

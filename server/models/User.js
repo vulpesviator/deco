@@ -25,9 +25,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  userScore: {
-    type: UserScoreSchema
-  }
+  userScore: UserScoreSchema
 });
 
 // set up pre-save middleware to create password

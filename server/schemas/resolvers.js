@@ -22,18 +22,11 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        let user = await User.findById(context.user._id)
+        let user = await User.findById(context.user._id);
         return user;
       }
 
       throw new AuthenticationError('Not logged in');
-    },
-    userScore: async (parent, args, context) => {
-      if (context.user) {
-        let user = await User.findById(context.user._id)
-        let userScore = await User.findOneAndUpdate()
-        
-      }
     }
   },
   Category: {
@@ -45,11 +38,12 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
+      const user = await User.create({...args, userScore: {}});
       const token = signToken(user);
-
+      
       return { token, user };
     },
+
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
@@ -57,12 +51,15 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    // addUserScore: async (parent, { }) => {
 
-    //   // get score and category
-    //   // update the userscore model
+    updateUserScore: async (parent, { rating, category }, context) => {
+      const currentUser = await User.findById(context.user._id);
+      currentUser.userScore[category] = rating;
       
-    // },
+      const updated = await currentUser.save();
+      return updated;
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
