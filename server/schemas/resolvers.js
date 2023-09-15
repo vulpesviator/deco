@@ -1,10 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Category, Image, UserScore } = require('../models');
 const { signToken } = require('../utils/auth');
-const { ApolloClient, InMemoryCache, gql } = require('@apollo/client');
+const { ApolloClient, InMemoryCache } = require('@apollo/client');
 
 const artInstituteClient = new ApolloClient({
-  uri: 'https://api.artic.edu/api/v1/artworks/search?query[term][is_public_domain]=true&limit=0', 
+  uri: 'https://api.artic.edu/api/v1/artworks/search?q=${category.name}', 
   cache: new InMemoryCache(),
 });
 
