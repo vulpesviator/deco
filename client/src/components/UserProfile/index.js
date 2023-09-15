@@ -18,9 +18,12 @@ function UserProfile() {
   let category1;
   let category2;
   let category3;
+  let categoryNameArray = [];
+  let categoryIdArray = [];
   let image1 = "";
   let image2 = "";
   let image3 = "";
+  let imageSrcArray = [];
 
   function renderCategoryData() {
   
@@ -42,22 +45,21 @@ function UserProfile() {
     for (let i = 0; i < images.length; i++) {
       let imageCategory = images[i].category;
       if (imageCategory.scoreCategory === category1[0]){
-        category1 = imageCategory.name;
-        image1 = images[i].src;
+        category1 = imageCategory;
+        image1 = images[i];
       } else if (imageCategory.scoreCategory === category2[0]) {
-        category2 = imageCategory.name;
-        image2 = images[i].src;
+        category2 = imageCategory;
+        image2 = images[i];
       } else if (imageCategory.scoreCategory === category3[0]) {
-        category3 = imageCategory.name;
-        image3 = images[i].src;
+        category3 = imageCategory;
+        image3 = images[i];
       } 
     }
-    console.log("CATEGORIES", category1, category2, category3);
-    console.log("IMAGES", image1, image2, image3);
-
+    categoryNameArray = [category1.name, category2.name, category3.name];
+    categoryIdArray = [category1._id, category2._id, category3._id];
+    imageSrcArray = [image1.src, image2.src, image3.src];
   }
-
-  renderCategoryData();
+  
 
   const handleLogout = async (event) => {
     event.preventDefault();
@@ -67,72 +69,89 @@ function UserProfile() {
       console.log(e);
     }
   };
-if (Auth.loggedIn()){
-  return (
-    <Container >
-      <Segment.Group horizontal>
-          <Segment horizontal textAlign="center">
-            <h1 font-size="50px">{user.firstName} {user.lastName}</h1>
-            <Segment textAlign="center" s>
-            <Button onClick={handleLogout}>Log Out</Button>
-          </Segment>
-          </Segment>
-          
-        {/* <Segment textAlign="center">
-          <Header>Top Artists</Header>
-          <List>
-            <List.Item>Vincent Van Gogh</List.Item>
-            <List.Item>Pablo Picasso</List.Item>
-            <List.Item>Andy Warhol</List.Item>
-          </List>
-        </Segment> */}
-        <Segment textAlign="center">
-          <Header>Top Art Styles</Header>
-          <List>
-            <List.Item>{category1}</List.Item>
-            <List.Item>{category2}</List.Item>
-            <List.Item>{category3}</List.Item>
-          </List>
-          
-        </Segment>
-      </Segment.Group>
-      <Segment.Group >
-        <Segment textAlign="center">
-          <Header>Top Art Pieces</Header>
-        </Segment>
-        <Segment> 
-          <ImageCarousel />
-        </Segment>
-      </Segment.Group>
-      
 
-    </Container>
-  );
-} else {
-  return(
-  <Jumbotron>
-    <h1>You Are Not Logged In!</h1>
-    <Button
-      className="primary"
-      name="login"
-      as={Link}
-      to="/login"
-    >
-      Login Here
-    </Button>
-    <Button
-      className="secondary"
-      name="signup"
-      as={Link}
-      to="/signup"
-    >
-      Signup
-    </Button>
+  if(!loadingUser && !loadingImages){
+    if (Auth.loggedIn()){
+      renderCategoryData();
+      return (
+        <Container >
+          <Segment.Group horizontal>
+              <Segment horizontal textAlign="center">
+                <h1 font-size="50px">{user.firstName} {user.lastName}</h1>
+                <Segment textAlign="center" s>
+                <Button onClick={handleLogout}>Log Out</Button>
+              </Segment>
+              </Segment>
+              
+            <Segment textAlign="center">
+              <Header>Top Art Styles</Header>
+              <List>
+                <List.Item>
+                  <Link 
+                    to={`/art/${categoryIdArray[0]}`} 
+                    style={{color: "black", fontWeight: "bold"}}
+                  >
+                    {categoryNameArray[0]}
+                  </Link>
+                </List.Item>
+                <List.Item>
+                  <Link 
+                    to={`/art/${categoryIdArray[1]}`} 
+                    style={{color: "black", fontWeight: "bold"}}
+                  >
+                    {categoryNameArray[1]}
+                  </Link>
+                </List.Item>
+                <List.Item>
+                  <Link 
+                    to={`/art/${categoryIdArray[2]}`} 
+                    style={{color: "black", fontWeight: "bold"}}
+                  >
+                    {categoryNameArray[2]}
+                  </Link>
+                </List.Item>
+              </List>
+              
+            </Segment>
+          </Segment.Group>
+          <Segment.Group >
+            <Segment textAlign="center">
+              <Header>Top Art Pieces</Header>
+            </Segment>
+            <Segment> 
+              <ImageCarousel />
+            </Segment>
+          </Segment.Group>
+          
 
-    
-  </Jumbotron>
-  );
-}
+        </Container>
+      );
+    } else {
+      return(
+      <Jumbotron>
+        <h1>You Are Not Logged In!</h1>
+        <Button
+          className="primary"
+          name="login"
+          as={Link}
+          to="/login"
+        >
+          Login Here
+        </Button>
+        <Button
+          className="secondary"
+          name="signup"
+          as={Link}
+          to="/signup"
+        >
+          Signup
+        </Button>
+
+        
+      </Jumbotron>
+      );
+    }
+  }
 
 
 }
