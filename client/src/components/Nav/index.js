@@ -78,13 +78,6 @@ export default function Nav() {
             >
               <Button className="primary">Log In</Button>
             </Menu.Item>
-            <Menu.Item
-              name="quiz"
-              as={Link}
-              to="/quiz"
-            >
-              <Button className="secondary">Take the Test</Button>
-            </Menu.Item>
           </Menu.Menu>
         </>
       );

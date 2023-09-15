@@ -12,11 +12,12 @@ import { UPDATE_SCORE } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
 
 export function Question() {
+  const { loading, data } = useQuery(QUERY_IMAGES);
+  const images = data?.images || [];
+  
   const [activeQuestion, setActiveQuestion] = useState(0);
 
   const [isDisabled, setDisabled] = useState(false);
-
-  const { loading, data } = useQuery(QUERY_IMAGES);
 
 useEffect(() => {
   if (data) {
@@ -27,8 +28,6 @@ useEffect(() => {
   }
 
 }, [loading, data,])
-
-const images = data?.images || [];
 
 console.log(images)
   const currentImage = images[activeQuestion];
