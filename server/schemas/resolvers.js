@@ -4,7 +4,7 @@ const { signToken } = require('../utils/auth');
 const { ApolloClient, InMemoryCache } = require('@apollo/client');
 
 const artInstituteClient = new ApolloClient({
-  uri: 'https://api.artic.edu/api/v1/artworks/search?q=${category.name}', 
+  uri: 'https://api.artic.edu/api/v1/artworks/search?fields=id,title,image_id&q=${category.name}', 
   cache: new InMemoryCache(),
 });
 
@@ -44,10 +44,16 @@ const resolvers = {
 
         const { data } = await artInstituteClient.query({
           query: QUERY_CATEGORY_IMAGES,
-          variables: { categoryId: category._id },
+          variables: { categoryId: categoryId },
+          // return fetch and map ${data.image_id} to the image url string `https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`
         });
 
-        return data.category.image;
+        const categoryImageUrls = data.data.artworks.map((artwork) => {
+          return `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
+        });
+
+        return categoryImageUrls;
+        
       } catch (error) {
         throw new AuthenticationError('Error fetching category images');
       }
