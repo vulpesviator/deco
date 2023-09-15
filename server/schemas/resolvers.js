@@ -1,6 +1,12 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Category, Image, UserScore } = require('../models');
 const { signToken } = require('../utils/auth');
+const { ApolloClient, InMemoryCache, gql } = require('@apollo/client');
+
+const artInstituteClient = new ApolloClient({
+  uri: 'https://api.artic.edu/api/v1/artworks/search?query[term][is_public_domain]=true&limit=0', 
+  cache: new InMemoryCache(),
+});
 
 
 const resolvers = {
@@ -27,7 +33,25 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
-    }
+    },
+    categoryImages: async (parent, { categoryId }) => {
+      try {
+        const category = await Category.findById(categoryId);
+
+        if (!category) {
+          throw new AuthenticationError('Category not found');
+        }
+
+        const { data } = await artInstituteClient.query({
+          query: QUERY_CATEGORY_IMAGES,
+          variables: { categoryId: category._id },
+        });
+
+        return data.category.image;
+      } catch (error) {
+        throw new AuthenticationError('Error fetching category images');
+      }
+    },
   },
   Category: {
     image: async (parent) => {
