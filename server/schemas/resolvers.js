@@ -1,12 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Category, Image, UserScore } = require('../models');
 const { signToken } = require('../utils/auth');
-const { ApolloClient, InMemoryCache } = require('@apollo/client');
 
-const artInstituteClient = new ApolloClient({
-  uri: 'https://api.artic.edu/api/v1/artworks/search?fields=id,title,image_id&q=${category.name}', 
-  cache: new InMemoryCache(),
-});
 
 
 const resolvers = {
@@ -42,16 +37,29 @@ const resolvers = {
           throw new AuthenticationError('Category not found');
         }
 
-        const { data } = await artInstituteClient.query({
+        
+
+        const artInstituteClient = `https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`
+
+        console.log(artInstituteClient);
+
+        const { data: artData } = await artInstituteClient.query({
           query: QUERY_CATEGORY_IMAGES,
           variables: { categoryId: categoryId },
           // return fetch and map ${data.image_id} to the image url string `https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`
         });
 
-        const categoryImageUrls = data.data.artworks.map((artwork) => {
-          return `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
+        const categoryImageUrls = artData.data.map(async (artwork) => {
+          const image = await Image.create({
+            src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
+            artist: artwork.artist_display,
+            category: category.scoreCategory
+          })
+          
+          return image;
         });
 
+        console.log(categoryImageUrls);
         return categoryImageUrls;
         
       } catch (error) {

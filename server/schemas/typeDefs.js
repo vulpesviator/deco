@@ -80,7 +80,7 @@ const typeDefs = gql`
   type Query {
     categories: [Category]
     category(_id: ID): Category
-    categoryImages(categoryId: ID!): [Image]
+    categoryImages(categoryId: ID!): Category
     images: [Image]
     image(_id: ID): Image
     user: User
