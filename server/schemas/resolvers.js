@@ -39,24 +39,25 @@ const resolvers = {
         }
 
         
-        const artDataJSON = await fetch(`https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`);
-        
-        const artData = JSON.stringify(artDataJSON);
+        const artInstituteClient = `https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`;
+
+        const response = await fetch(artInstituteClient);
+        const artData = await response.json();
 
         console.log(artData);
 
-        const categoryImageUrls = artData.data.map(async (artwork) => {
+        const categoryImageUrls = await Promise.all(artData.data.map(async (artwork) => {          
           const image = await Image.create({
             src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
             artist: artwork.artist_display,
             category: category.scoreCategory
-          })
+          });
           
           return image;
-        });
+        }));
 
         console.log(categoryImageUrls);
-        return category;
+        return categoryImageUrls;
         
       } catch (error) {
         throw new AuthenticationError('Error fetching category images');
