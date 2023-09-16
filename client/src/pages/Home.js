@@ -1,19 +1,18 @@
 import React from "react";
 import {
   Container,
-  Image,
-  Header,
   Button,
   Grid,
-  GridColumn,
 } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const Home = () => {
   const navigate = useNavigate();
   const navigateProfile = () => {
     navigate("/quiz");
   };
+  const loggedIn = Auth.loggedIn();
 
   return (
     <Container  >
@@ -45,14 +44,22 @@ const Home = () => {
           <div class='ui header centered'>
           <i class="image outline icon"></i>
           </div>
-          <h3 class="ui header centered">Use your new found art styles to decorate your home </h3>
+          <h3 class="ui header centered">Use your new found art styles to decorate</h3>
         </div>
        
       </div>
 
       <Grid.Row>
       <div class='ui header centered' style={{'margin': '2em', 'padding': '2em'}} >
+        {loggedIn ? (
           <Button className="secondary text-dark centered" onClick={navigateProfile} > Take the Test</Button>
+
+        ) : (
+          <>
+           <Button className="secondary text-dark centered"  style= {{'margin': '1em'}}onClick={() => navigate("/login")} > LogIn</Button>
+          <Button className="secondary text-dark centered"style= {{'margin': '1em'}} onClick={() => navigate("/signup")} > Signup</Button>
+          </>
+        )}
           </div>
       </Grid.Row>
     </Container>
