@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
     scoreCategory: String
     description: String
-    image: Image
+    image: [Image]
   }
 
   type Image {

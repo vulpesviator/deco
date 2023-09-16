@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Category, Image, UserScore } = require('../models');
 const { signToken } = require('../utils/auth');
+const fetch = require("node-fetch");
 
 
 
@@ -38,16 +39,11 @@ const resolvers = {
         }
 
         
+        const artDataJSON = await fetch(`https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`);
+        
+        const artData = JSON.stringify(artDataJSON);
 
-        const artInstituteClient = `https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`
-
-        console.log(artInstituteClient);
-
-        const { data: artData } = await artInstituteClient.query({
-          query: QUERY_CATEGORY_IMAGES,
-          variables: { categoryId: categoryId },
-          // return fetch and map ${data.image_id} to the image url string `https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`
-        });
+        console.log(artData);
 
         const categoryImageUrls = artData.data.map(async (artwork) => {
           const image = await Image.create({
@@ -60,7 +56,7 @@ const resolvers = {
         });
 
         console.log(categoryImageUrls);
-        return categoryImageUrls;
+        return category;
         
       } catch (error) {
         throw new AuthenticationError('Error fetching category images');
