@@ -38,29 +38,54 @@ const resolvers = {
           throw new AuthenticationError('Category not found');
         }
 
+        function getArt(query){
+          let categoryImages = [];
+          var artInstApi = `https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${query}`;
+          fetch(artInstApi)
+              .then(function(response){
+                  if (response.ok) {
+                      response.json().then(async function (data){
+                        const artData = data.data;
+                        categoryImages = await Promise.all(artData.map(async (artwork) => {          
+                          const image = await Image.create({
+                            src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
+                            artist: artwork.artist_display,
+                            category: category._id
+                          });
+                        return image;  
+                        }))
+                      }).then(() => {
+                        console.log("PLEASEBERIGHT", categoryImages);
+                        return categoryImages;
+                      })
+                  } else {
+                    console.log('error');
+                }    
+              })
+        }
+
+        const imageArray = getArt(category.scoreCategory);
+
         
-        const artInstituteClient = `https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`;
+        // const artInstituteClient = `https://api.artic.edu/api/v1/artworks/search?fields=id,artist_display,title,image_id&q=${category.scoreCategory}`;
 
-        const response = await fetch(artInstituteClient);
-        const artData = await response.json();
+        // const response = await fetch(artInstituteClient);
+        // const artData = await response.json();
 
-        // console.log(artData.data[0].image_id);
+        // // console.log(artData.data[0].image_id);
 
-        const categoryImages = await Promise.all(artData.data.map(async (artwork) => {          
-         console.log(artwork);
-          const image = await Image.create({
-            src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
-            artist: artwork.artist_display,
-            category: category._id
-          });
+        // const categoryImages = await Promise.all(artData.data.map(async (artwork) => {          
+        //  console.log(artwork);
+        //   const image = await Image.create({
+        //     src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
+        //     artist: artwork.artist_display,
+        //     category: category._id
+        //   });
           
-          return image;
-        }));
+        //   return image;
+        // }));
 
-        categoryImageUrls = []
-
-        console.log(categoryImageUrls);
-        return categoryImages.push(categoryImageUrls);
+        return category;
         
       } catch (error) {
         throw new AuthenticationError('Error fetching category images');
