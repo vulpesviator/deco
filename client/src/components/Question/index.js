@@ -116,14 +116,15 @@ console.log(images)
           <Grid textAlign="center">
             <Grid.Row>
               {" "}
+             
               <img
                 src={currentImage.src}
-                alt={currentImage.src}
-                height="200"
-                width="200"
+                alt={currentImage.category.name}
+                height="400"
+                width="400"
                 margin="10px"
                 padding="10px"
-              ></img>
+              ></img> 
             </Grid.Row>
 
             <RatingSlider />
