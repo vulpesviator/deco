@@ -12,15 +12,25 @@ import { UPDATE_SCORE } from "../../utils/mutations";
 import { useNavigate } from "react-router-dom";
 
 export function Question() {
+  const { loading, data } = useQuery(QUERY_IMAGES);
+  const images = data?.images || [];
+  
   const [activeQuestion, setActiveQuestion] = useState(0);
 
   const [isDisabled, setDisabled] = useState(false);
 
-  const { loading, data } = useQuery(QUERY_IMAGES);
-  const images = data?.images || [];
+useEffect(() => {
+  if (data) {
+    console.log('we have data')
+  }
+  else if (loading){
+    console.log("LOADING");
+  }
+
+}, [loading, data,])
+
 console.log(images)
   const currentImage = images[activeQuestion];
-
   function RatingSlider() {
     const [rating, setRating] = useState(1);
     const handleChange = (e) => {
@@ -45,8 +55,8 @@ console.log(images)
     
     async function onClickNext(event) {
       event.preventDefault();
-      event.stopPropagation();
-
+      
+    
       const currentCategory = currentImage.category.scoreCategory;
       console.log("CATEGORY", currentCategory);
 
@@ -54,6 +64,8 @@ console.log(images)
         const { data } = await updateScore({
           variables: {rating: parseInt(rating), category: currentCategory.toString() },
         });
+        console.log(data)
+
 
       } catch (error) {
         console.log(error);
