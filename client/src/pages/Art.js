@@ -18,7 +18,7 @@ function Art() {
   );
 
   const category = data?.category || [];
-  // console.log(category);
+  console.log(category);
   return (
     <div style={{ margin: 20 }}>
       <Segment attached="top">
@@ -27,7 +27,7 @@ function Art() {
       </Segment>
 
       <Segment attached="bottom">
-        <ImageCarousel images={category.image} />
+        <ImageCarousel images={category.images} />
       </Segment>
     </div>
   );

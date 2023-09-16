@@ -119,8 +119,8 @@ console.log(images)
               <img
                 src={currentImage.src}
                 alt={currentImage.src}
-                height="200"
-                width="200"
+                height="400"
+                width="auto"
                 margin="10px"
                 padding="10px"
               ></img>
