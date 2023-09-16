@@ -32,8 +32,31 @@ export const QUERY_CATEGORIES = gql`
 export const QUERY_USER = gql`
   {
     user {
+      _id
       firstName
       lastName
+      userScore {
+        abstract
+        artDeco
+        artNouveau
+        conceptual
+        constructivism
+        expressionism
+        gothic
+        impressionism 
+        midCentury
+        minimalism
+        modernism
+        neoclassicism
+        popArt
+        postModern
+        realism
+        renaissance
+        romanticism
+        rustic
+        streetSymbolism
+        surrealism
+      }
     }
   }
 `;
