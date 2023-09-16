@@ -7,7 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+import AboutUs from './pages/AboutUs';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
@@ -77,6 +77,10 @@ function App() {
               <Route
                 path="/art/:categoryId"
                 element={<Art />}
+              />
+              <Route
+                path="/AboutUs"
+                element={<AboutUs />}
               />
             </Routes>
           </StoreProvider>
