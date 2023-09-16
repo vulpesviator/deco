@@ -46,7 +46,7 @@ const resolvers = {
 
         console.log(artData);
 
-        const categoryImageUrls = await Promise.all(artData.data.map(async (artwork) => {          
+        const categoryImages = await Promise.all(artData.data.map(async (artwork) => {          
           const image = await Image.create({
             src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
             artist: artwork.artist_display,
@@ -56,8 +56,10 @@ const resolvers = {
           return image;
         }));
 
+        categoryImageUrls = []
+
         console.log(categoryImageUrls);
-        return categoryImageUrls;
+        return categoryImages.push(categoryImageUrls);
         
       } catch (error) {
         throw new AuthenticationError('Error fetching category images');
