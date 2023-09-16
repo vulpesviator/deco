@@ -4,10 +4,10 @@ import { gql } from '@apollo/client';
 export const QUERY_CATEGORY_IMAGES = gql`
     query CategoryImages($categoryId: ID!) {
         category(_id: $categoryId) {
+            _id
             name
             scoreCategory
             image {
-                _id
                 src
                 artist
             }

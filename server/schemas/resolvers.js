@@ -51,7 +51,7 @@ const resolvers = {
           const image = await Image.create({
             src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
             artist: artwork.artist_display,
-            category: category.scoreCategory
+            category: category._id
           });
           
           return image;
