@@ -44,9 +44,10 @@ const resolvers = {
         const response = await fetch(artInstituteClient);
         const artData = await response.json();
 
-        console.log(artData);
+        // console.log(artData.data[0].image_id);
 
         const categoryImages = await Promise.all(artData.data.map(async (artwork) => {          
+         console.log(artwork);
           const image = await Image.create({
             src: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
             artist: artwork.artist_display,
