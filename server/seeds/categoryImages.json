@@ -40,6 +40,30 @@
             {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/6/65/Entrance_of_Rockefeller_Center.JPG",
                 "artist": " Jose Maria Sert"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/12/Mural-Ariel-Rios-Marsh-1.jpg",
+                "artist": "Reginald Marsh"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/3/32/Mural-Ariel-Rios-Rockwell-Kent-1.jpg",
+                "artist": "Rockwell Kent"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Bakst_Nizhinsky.jpg",
+                "artist": "Léon Bakst"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/9/91/Deutsche_Werkbund-Ausstellung_Kunst_in_Handwerk%2C_Industrie_und_Handel_Architektur_K%C3%B6ln_1914_Oct._Peter_Behrens_A._Molling_%26_Comp._KG_Hannover_Berlin.jpg",
+                "artist": "Peter Behrens"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/17/Moulin_Rouge_Music-Hall.jpg",
+                "artist": "Charles Gesmer"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Brightest_London_is_best_reached_by_Underground%2C_subway_poster%2C_1924.jpg",
+                "artist": "Hubert Gregg"
               }
         ]
     },
