@@ -107,7 +107,7 @@ const resolvers = {
         throw new Error('Category not found');
       }
 
-      currentCategory.image = images;
+      currentCategory.images = images;
 
       const updatedCategory = await currentCategory.save();
       return updatedCategory;
