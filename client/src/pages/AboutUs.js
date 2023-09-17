@@ -32,7 +32,7 @@ const AboutUs = () => {
   </div>
   <div class="card">
     <div class="image">
-    <img src='/images/Travis.jpg' alt='Travis' ></img>
+    <img src='/images/travis.jpg' alt='Travis' ></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Travis Hoffman</div>

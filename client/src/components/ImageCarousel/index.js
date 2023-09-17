@@ -25,7 +25,7 @@ const ImageCarousel = ({ images }) => {
         settings: {
           arrows: true,
           centerMode: true,
-          centerPadding: '50px',
+          
           slidesToShow: 3,
         },
       },
@@ -33,8 +33,7 @@ const ImageCarousel = ({ images }) => {
         breakpoint: 768,
         settings: {
           arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
+          centerMode: true,    
           slidesToShow: 3,
         },
       },
@@ -43,7 +42,6 @@ const ImageCarousel = ({ images }) => {
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: '40px',
           slidesToShow: 1,
         },
       },
