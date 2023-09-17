@@ -86,13 +86,12 @@ console.log(images)
             <input
               type="range"
               min={1}
-              max={5}
+              max={10}
               value={rating}
-              ariaSetsize={8}
               onChange={handleChange}
             />
             <br />
-            <Rating icon="star" maxRating={5} rating={rating} />
+            <Rating icon="star" maxRating={10} rating={rating} />
           </Grid.Row>
         </div>
         <Grid.Row>
