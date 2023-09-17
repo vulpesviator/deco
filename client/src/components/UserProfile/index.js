@@ -25,7 +25,7 @@ function UserProfile() {
   let image3 = "";
   let imageSrcArray = [];
 
-  function renderCategoryData() {
+  function pullCategoryData() {
   
     const topCategoriesObj = user.userScore;
 
@@ -57,7 +57,9 @@ function UserProfile() {
     }
     categoryNameArray = [category1.name, category2.name, category3.name];
     categoryIdArray = [category1._id, category2._id, category3._id];
-    imageSrcArray = [image1.src, image2.src, image3.src];
+    imageSrcArray = [image1, image2, image3];
+
+    console.log(imageSrcArray);
   }
   
 
@@ -72,7 +74,7 @@ function UserProfile() {
 
   if(!loadingUser && !loadingImages){
     if (Auth.loggedIn()){
-      renderCategoryData();
+      pullCategoryData();
       return (
         <Container >
           <Segment.Group horizontal>
@@ -119,7 +121,7 @@ function UserProfile() {
               <Header>Top Art Pieces</Header>
             </Segment>
             <Segment> 
-              <ImageCarousel />
+              <ImageCarousel images={imageSrcArray} />
             </Segment>
           </Segment.Group>
           

@@ -15,6 +15,16 @@
         "category": "Art Nouveau"
     },
     {
+        "src": "/images/conceptual-art.jpg",
+        "artist": "Yahor Urbanovich",
+        "category": "Conceptual"
+    },
+    {
+        "src": "/images/constructivism.jpg",
+        "artist": "Thomas Clough",
+        "category": "Constructivism"
+    },
+    {
         "src": "/images/expressionism.jpg",
         "artist": "Steve Johnson",
         "category": "Expressionism"
@@ -88,16 +98,5 @@
         "src": "/images/surrealism.jpg",
         "artist": "Pixabay",
         "category": "Surrealism"
-    }, 
-    {
-        "src": "/images/conceptual-art.jpg",
-        "artist": "Yahor Urbanovich",
-        "category": "Conceptual"
-    },
-    {
-        "src": "/images/constructivism.jpg",
-        "artist": "Thomas Clough",
-        "category": "Constructivism"
-    }
-    
+    } 
 ]

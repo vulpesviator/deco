@@ -81,13 +81,14 @@ console.log(images)
     return (
       <>
         <div>
-          <Grid.Row>
-            <div>Rating: {rating}</div>
+          <Grid.Row style={{ textAlign: "center" }}>
+            <div>Your rating: {rating}</div>
             <input
               type="range"
               min={1}
               max={5}
               value={rating}
+              ariaSetsize={8}
               onChange={handleChange}
             />
             <br />
@@ -116,18 +117,20 @@ console.log(images)
           <Grid textAlign="center">
             <Grid.Row>
               {" "}
+             
               <img
+                className="artwork"
                 src={currentImage.src}
-                alt={currentImage.src}
-                height="200"
-                width="200"
+                alt={currentImage.category.name}
+                height="400"
+                width="auto"
                 margin="10px"
                 padding="10px"
-              ></img>
+              ></img> 
             </Grid.Row>
-
+            
             <RatingSlider />
-
+            
             <Grid.Row key="temp"></Grid.Row>
           </Grid>
         </div>
