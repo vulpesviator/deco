@@ -1,3 +1,17 @@
 /*******************************
          Site Overrides
 *******************************/
+
+#root > div > div.ui.container > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1) {
+    font-family: @headerFont;
+    font-weight: 400;
+}
+
+.ui.star.rating .active.icon {
+    color: @tertiaryColor !important;
+    text-shadow: 0px -1px 0px #DDC507, -1px 0px 0px #DDC507, 0px 1px 0px #DDC507, 1px 0px 0px #DDC507 !important;
+}
+
+.ui.star.rating .icon {
+
+}
