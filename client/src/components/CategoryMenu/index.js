@@ -51,7 +51,7 @@ function CategoryMenu() {
       {categories.map((item) => (
         
         <Card color={cardColor[0]} key={item.id}>
-          {/* <Image src={item.image.src} wrapped ui={false} /> */}
+          <Image src={item.image.src} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{item.name}</Card.Header>
             <Card.Meta>
