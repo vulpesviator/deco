@@ -106,10 +106,17 @@ console.log(images)
 
   return (
     <Container>
+      <style>
+        {`
+        .ui.header:first-child {
+          margin-top: 1.5rem; 
+        }
+        `}
+      </style>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div className="quiz-container">
           <Header as="h3" textAlign="center">
             <p> Rate the following Artworks</p>
           </Header>

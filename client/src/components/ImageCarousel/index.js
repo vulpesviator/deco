@@ -1,20 +1,19 @@
 import React from "react";
-import Slider from 'react-slick';
-import { Container } from 'semantic-ui-react';
+import Slider from "react-slick";
+import { Container } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ImageCarousel = ({ images }) => {
   if (!images || !images.length) {
-    return (
-      <div>No images available</div>
-    );
+    return <div>No images available</div>;
   }
-  
+
   const settings = {
     centerMode: true,
-    lazyLoad: 'ondemand',
+    lazyLoad: "ondemand",
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -25,7 +24,7 @@ const ImageCarousel = ({ images }) => {
         settings: {
           arrows: true,
           centerMode: true,
-          
+
           slidesToShow: 3,
         },
       },
@@ -33,7 +32,7 @@ const ImageCarousel = ({ images }) => {
         breakpoint: 768,
         settings: {
           arrows: false,
-          centerMode: true,    
+          centerMode: true,
           slidesToShow: 3,
         },
       },
@@ -62,15 +61,16 @@ const ImageCarousel = ({ images }) => {
         `}
       </style>
       <Slider {...settings}>
-      {images.map((image) => ( 
-                    <div>
-                        <img src={image.src} alt={image.artist} height={400} />
-                    </div>
-                ))}
+        {images.map((image) => (
+          <div>
+            <Link to={image.src} target="_blank">
+              <img src={image.src} alt={image.artist} height={400} />
+            </Link>
+          </div>
+        ))}
       </Slider>
     </Container>
   );
-}
-
+};
 
 export default ImageCarousel;
