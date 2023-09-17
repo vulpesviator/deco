@@ -13,9 +13,7 @@ const ImageCarousel = ({ images }) => {
   }
   
   const settings = {
-    adaptiveHeight: true,
     centerMode: true,
-    centerPadding: '60px',
     lazyLoad: 'ondemand',
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -68,7 +66,7 @@ const ImageCarousel = ({ images }) => {
       <Slider {...settings}>
       {images.map((image) => ( 
                     <div>
-                        <img src={image.src} alt={image.artist} />
+                        <img src={image.src} alt={image.artist} height={400} />
                     </div>
                 ))}
       </Slider>
