@@ -19,8 +19,6 @@ function Art() {
     variables: {id: categoryId}
   });
 
-  console.log(categoryData);
-
   
   if (loading || categoryLoading) return (
     <Jumbotron size="huge"> Loading...</Jumbotron>

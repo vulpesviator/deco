@@ -58,8 +58,6 @@ function UserProfile() {
     categoryNameArray = [category1.name, category2.name, category3.name];
     categoryIdArray = [category1._id, category2._id, category3._id];
     imageSrcArray = [image1, image2, image3];
-
-    console.log(imageSrcArray);
   }
   
 

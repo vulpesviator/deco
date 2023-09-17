@@ -54,15 +54,14 @@ const AboutUs = () => {
   </div>
   <div class="card">
     <div class="image">
-      <img ></img>
+      <img src= '/images/Danny_485.jpeg' alt='A dashing man named Danny Wittig'></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Danny Wittig</div>
       <div class="meta">
-        <a>Coworker</a>
       </div>
       <div class="description">
-        Elyse is a copywriter working in New York.
+      How does one find the words to describe Danny Wittig. An innovator, a problem solver, a free thinker... these are just a few of the many descriptors attributed to him. If you were to ask him yourself, he would probably say he is just a humble kid from the east end of Pittsburgh, looking to make his place in the world. But the reality is, you could never really know Danny until you meet him, shake his hand, and let him tell you about his life.
       </div>
     </div>
     <div class="extra content">

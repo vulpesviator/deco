@@ -29,13 +29,11 @@ useEffect(() => {
 
 }, [loading, data,])
 
-console.log(images)
   const currentImage = images[activeQuestion];
   function RatingSlider() {
     const [rating, setRating] = useState(1);
     const handleChange = (e) => {
       setRating( e.target.value );
-      console.log(rating);
 
       if(!e.target) {
         setDisabled(true);
