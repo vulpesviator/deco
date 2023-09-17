@@ -12,7 +12,11 @@ const ImageCarousel = ({ images }) => {
   }
 
   const settings = {
+    classNmae: "center variable-width",
+    variableWidth: true,
     centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
     lazyLoad: "ondemand",
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -57,6 +61,10 @@ const ImageCarousel = ({ images }) => {
           transform: scale(1.5);
           transition: 0.2s;
           transition-timing-function: ease;
+        }
+
+        .slick-slide img {
+          margin: auto;
         }
         `}
       </style>
