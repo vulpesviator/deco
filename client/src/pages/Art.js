@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { Header, Segment } from "semantic-ui-react";
-import { QUERY_CATEGORY_IMAGES } from "../utils/queries";
+import { QUERY_CATEGORY_IMAGES, QUERY_CATEGORY } from "../utils/queries";
 import ImageCarousel from "../components/ImageCarousel";
 
 function Art() {
@@ -13,12 +13,20 @@ function Art() {
     variables: { categoryId: categoryId },
   });
 
-  if (loading) return (
+  const { loading: categoryLoading, data: categoryData} = useQuery(QUERY_CATEGORY, {
+    variables: {id: categoryId}
+  });
+
+  console.log(categoryData);
+
+  const category = categoryData.category;
+
+  if (loading || categoryLoading) return (
      <div>Loading...</div>
   );
 
-  const category = data?.category || [];
-  console.log(category);
+  const images = data?.categoryImages || [];
+  console.log(images);
   return (
     <div style={{ margin: 20 }}>
       <Segment attached="top">
@@ -27,7 +35,7 @@ function Art() {
       </Segment>
 
       <Segment attached="bottom">
-        <ImageCarousel images={category.images} />
+        <ImageCarousel images={images} />
       </Segment>
     </div>
   );
