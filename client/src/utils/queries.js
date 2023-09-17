@@ -18,25 +18,22 @@ export const QUERY_CATEGORY_IMAGES = gql`
 export const QUERY_CATEGORY = gql`
   query CategoryImages($id: ID) {
     category(_id: $id) {
-      name
-      description
-      scoreCategory
       _id
+      name
+      scoreCategory
+      description
     }
   }
 `;
 
 export const QUERY_CATEGORIES = gql`
-  {
+  query categories {
     categories {
       _id
       name
       scoreCategory
       description
-      image {
-        _id
-        src
-      }
+      image
     }
   }
 `;
@@ -73,18 +70,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_QUESTIONS = gql`
-query Questions {
-  questions {
-    _id
-    text
-    image {
-      _id
-      src
-    }
-  }
-}`
-
 export const QUERY_IMAGES = gql `
 query Images {
   images {
@@ -95,6 +80,7 @@ query Images {
       name
       description
       scoreCategory
+      image
     }
     
   }

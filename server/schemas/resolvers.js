@@ -6,8 +6,9 @@ const fetch = require("node-fetch");
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find().populate("image");
+      return await Category.find();
     },
+
     category: async (parent, { _id }) => {
       return await Category.findById(_id);
     },
@@ -17,9 +18,11 @@ const resolvers = {
 
       return result;
     },
+
     image: async (parent, { _id }) => {
       return await Image.findById(_id).populate("category");
     },
+
     user: async (parent, args, context) => {
       if (context.user) {
         let user = await User.findById(context.user._id);
@@ -28,6 +31,7 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
     categoryImages: async (parent, { categoryId }) => {
       try {
         const category = await Category.findById(categoryId);
@@ -68,13 +72,6 @@ const resolvers = {
       }
     },
   },
-  Category: {
-    image: async (parent) => {
-      const categoryId = parent._id;
-      const image = await Image.findOne({ category: categoryId });
-      return image;
-    },
-  },
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create({ ...args, userScore: {} });
@@ -99,19 +96,6 @@ const resolvers = {
 
       const updated = await currentUser.save();
       return updated;
-    },
-    
-    updateCategory: async (parent, { category, images }, context) => {
-      const currentCategory = await Category.findById(category._id);
-
-      if (!currentCategory) {
-        throw new Error('Category not found');
-      }
-
-      currentCategory.images = images;
-
-      const updatedCategory = await currentCategory.save();
-      return updatedCategory;
     },
 
     login: async (parent, { email, password }) => {

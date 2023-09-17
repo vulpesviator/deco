@@ -25,7 +25,7 @@ function UserProfile() {
   let image3 = "";
   let imageSrcArray = [];
 
-  function renderCategoryData() {
+  function pullCategoryData() {
   
     const topCategoriesObj = user.userScore;
 
@@ -74,7 +74,7 @@ function UserProfile() {
 
   if(!loadingUser && !loadingImages){
     if (Auth.loggedIn()){
-      renderCategoryData();
+      pullCategoryData();
       return (
         <Container >
           <Segment.Group horizontal>
