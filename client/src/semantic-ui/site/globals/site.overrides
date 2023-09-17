@@ -2,3 +2,8 @@
          Site Overrides
 *******************************/
 
+img.artwork {
+    -webkit-box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
+    -moz-box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
+    box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
+}

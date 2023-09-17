@@ -119,10 +119,11 @@ console.log(images)
               {" "}
              
               <img
+                className="artwork"
                 src={currentImage.src}
                 alt={currentImage.category.name}
                 height="400"
-                width="400"
+                width="auto"
                 margin="10px"
                 padding="10px"
               ></img> 

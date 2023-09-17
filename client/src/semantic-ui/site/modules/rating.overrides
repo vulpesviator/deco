@@ -5,13 +5,32 @@
 #root > div > div.ui.container > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(1) {
     font-family: @headerFont;
     font-weight: 400;
+    padding: 1rem 0;
+}
+
+.ui.star.rating {
+    padding: 1rem;
 }
 
 .ui.star.rating .active.icon {
-    color: @tertiaryColor !important;
-    text-shadow: 0px -1px 0px #DDC507, -1px 0px 0px #DDC507, 0px 1px 0px #DDC507, 1px 0px 0px #DDC507 !important;
+    color: @secondaryColor !important;
+    text-shadow: 0px -1px 0px @secondaryColor, -1px 0px 0px @secondaryColor, 0px 1px 0px @secondaryColor, 1px 0px 0px @secondaryColor !important;
+    font-size: 1.5rem;
 }
 
 .ui.star.rating .icon {
-
+    font-size: 1.5rem;
 }
+
+.ui.star.rating .icon.selected,
+.ui.star.rating .icon.selected.active {
+  color: @secondaryColor !important;
+}
+
+/***** Slider Styles *****/
+
+input[type="range" i] {
+  accent-color: @secondaryColor;
+  width: 15rem;
+}
+
