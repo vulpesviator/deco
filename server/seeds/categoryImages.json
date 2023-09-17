@@ -1,0 +1,161 @@
+[
+    {
+        "name": "Abstract",
+        "scoreCategory": "abstract",
+        "images": [
+            {
+              "src": "https://upload.wikimedia.org/wikipedia/en/2/29/Newman-Onement_1.jpg",
+              "artist": "Barnett Newman"
+            },
+            {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Arthur_Dove%2C_1911-12%2C_Based_on_Leaf_Forms_and_Spaces%2C_pastel_on_unidentified_support._Now_lost.jpg",
+                "artist": "Arthur Dove"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/en/7/71/Francis_Picabia%2C_1912%2C_Tarentelle%2C_oil_on_canvas%2C_73.6_x_92.1_cm%2C_Museum_of_Modern_Art%2C_New_York.jpg",
+                "artist": "Francis Picabia"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/en/b/b7/Pablo_Picasso%2C_1913-14%2C_Head_%28T%C3%AAte%29%2C_cut_and_pasted_colored_paper%2C_gouache_and_charcoal_on_paperboard%2C_43.5_x_33_cm%2C_Scottish_National_Gallery_of_Modern_Art%2C_Edinburgh.jpg?20130914080918",
+                "artist": "Pablo Picasso"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/0/07/Hilma_af_Klint_Svanen.jpg",
+                "artist": "Hilma af Klint"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Theo_van_Doesburg_Composition_VII_%28the_three_graces%29.jpg",
+                "artist": "Theo van Doesburg"
+              },
+            {
+              "src": "https://upload.wikimedia.org/wikipedia/en/7/7a/Albert_Gleizes%2C_1910-12%2C_Les_Arbres%2C_oil_on_canvas%2C_41_x_27_cm._Reproduced_in_Du_%22Cubisme%22%2C_1912.jpg",
+              "artist": "Albert Gleizes"
+            }
+        ]
+    },
+    {
+        "name": "Art Deco",
+        "scoreCategory": "artDeco",
+        "images": [
+            {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/6/65/Entrance_of_Rockefeller_Center.JPG",
+                "artist": " Jose Maria Sert"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/12/Mural-Ariel-Rios-Marsh-1.jpg",
+                "artist": "Reginald Marsh"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/3/32/Mural-Ariel-Rios-Rockwell-Kent-1.jpg",
+                "artist": "Rockwell Kent"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Bakst_Nizhinsky.jpg",
+                "artist": "Léon Bakst"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/9/91/Deutsche_Werkbund-Ausstellung_Kunst_in_Handwerk%2C_Industrie_und_Handel_Architektur_K%C3%B6ln_1914_Oct._Peter_Behrens_A._Molling_%26_Comp._KG_Hannover_Berlin.jpg",
+                "artist": "Peter Behrens"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/1/17/Moulin_Rouge_Music-Hall.jpg",
+                "artist": "Charles Gesmer"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Brightest_London_is_best_reached_by_Underground%2C_subway_poster%2C_1924.jpg",
+                "artist": "Hubert Gregg"
+              }
+        ]
+    },
+    {
+        "src": "/images/art-nouveau.jpg",
+        "artist": "Europeana",
+        "category": "Art Nouveau"
+    },
+    {
+        "src": "/images/expressionism.jpg",
+        "artist": "Steve Johnson",
+        "category": "Expressionism"
+    },
+    {
+        "src": "/images/gothic.jpg",
+        "artist": "Jonas Jaeken",
+        "category": "Gothic"
+    },
+    {
+        "src": "/images/impressionism.jpg",
+        "artist": "Europeana",
+        "category": "Impressionism"
+    },
+    {
+        "src": "/images/mid-century-modern.jpg",
+        "artist": "Omar Flores",
+        "category": "Mid-Century"
+    },
+    {
+        "src": "/images/minimalism.jpg",
+        "artist": "Annie Spratt",
+        "category": "Minimalism"
+    },
+    {
+        "src": "/images/modern.jpg",
+        "artist": "Birmingham Museums Trust",
+        "category": "Modernism"
+    },
+    {
+        "src": "/images/neoclassical.jpg",
+        "artist": "Europeana",
+        "category": "Neoclassicism"
+    },
+    {
+        "src": "/images/pop-art.jpg",
+        "artist": "Tim Hufner",
+        "category": "Pop Art"
+    },
+    {
+        "src": "/images/postmodern.jpg",
+        "artist": "Jazmin Quaynor",
+        "category": "Postmodern"
+    },
+    {
+        "src": "/images/realism.jpg",
+        "artist": "Europeana",
+        "category": "Realism"
+    },
+    {
+        "src": "/images/renaissance.jpg",
+        "artist": "Adrianna Geo",
+        "category": "Renaissance"
+    },
+    {
+        "src": "/images/romanticism.jpg",
+        "artist": "Birmingham Museums Trust",
+        "category": "Romanticism"
+    },
+    {
+        "src": "/images/rustic.jpg",
+        "artist": "Birmingham Museums Trust",
+        "category": "Rustic"
+    },
+    {
+        "src": "/images/street-art.jpg",
+        "artist": "Jon Tyson",
+        "category": "Street/Symbolism"
+    },
+    {
+        "src": "/images/surrealism.jpg",
+        "artist": "Pixabay",
+        "category": "Surrealism"
+    }, 
+    {
+        "src": "/images/conceptual-art.jpg",
+        "artist": "Yahor Urbanovich",
+        "category": "Conceptual"
+    },
+    {
+        "src": "/images/constructivism.jpg",
+        "artist": "Thomas Clough",
+        "category": "Constructivism"
+    }
+    
+]
