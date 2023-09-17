@@ -62,7 +62,7 @@ const resolvers = {
         const categoryImages = await getArt(category.scoreCategory);
         console.log("Run Function", categoryImages);
         return categoryImages;
-        
+
       } catch (error) {
         throw new AuthenticationError("Error fetching category images");
       }
@@ -99,6 +99,18 @@ const resolvers = {
 
       const updated = await currentUser.save();
       return updated;
+    },
+    updateCategory: async (parent, { category, images }, context) => {
+      const currentCategory = await Category.findById(category._id);
+
+      if (!currentCategory) {
+        throw new Error('Category not found');
+      }
+
+      currentCategory.image = images;
+
+      const updatedCategory = await currentCategory.save();
+      return updatedCategory;
     },
 
     login: async (parent, { email, password }) => {

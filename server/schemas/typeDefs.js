@@ -77,6 +77,20 @@ const typeDefs = gql`
     surrealism: Int
   }
 
+  input CategoryImagesInput {
+    _id: ID
+    name: String
+    scoreCategory: String
+    description: String
+    images: [ImageInput]
+  }
+  
+  input ImageInput {
+    _id: ID
+    src: String
+    artist: String
+  }
+
   type Query {
     categories: [Category]
     category(_id: ID): Category
@@ -90,6 +104,7 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, userScore: UserScoreInput ): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateUserScore(rating: Int, category: String): User
+    updateCategory(category: CategoryImagesInput, images: [ImageInput]): Category
     login(email: String!, password: String!): Auth
   }
 `;

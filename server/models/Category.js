@@ -15,10 +15,10 @@ const categorySchema = new Schema({
     type: String,
     required: true,
   }, 
-  image: {
+  images: [{
     type: Schema.Types.ObjectId,
     ref: 'Image'
-  }
+  }]
 });
 
 const Category = mongoose.model('Category', categorySchema);
