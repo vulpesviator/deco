@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 import { Header, Segment } from "semantic-ui-react";
 import { QUERY_CATEGORY_IMAGES, QUERY_CATEGORY } from "../utils/queries";
 import ImageCarousel from "../components/ImageCarousel";
+import Jumbotron from "../components/Jumbotron";
+
 
 function Art() {
   const { categoryId } = useParams();
@@ -19,14 +21,15 @@ function Art() {
 
   console.log(categoryData);
 
-  const category = categoryData.category;
-
+  
   if (loading || categoryLoading) return (
-     <div>Loading...</div>
-  );
-
+    <Jumbotron size="huge"> Loading...</Jumbotron>
+    );
+    
+  const category = categoryData.category;
   const images = data?.categoryImages || [];
   console.log(images);
+
   return (
     <div style={{ margin: 20 }}>
       <Segment attached="top">

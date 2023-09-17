@@ -100,6 +100,7 @@ const resolvers = {
       const updated = await currentUser.save();
       return updated;
     },
+    
     updateCategory: async (parent, { category, images }, context) => {
       const currentCategory = await Category.findById(category._id);
 
