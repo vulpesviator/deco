@@ -33,7 +33,7 @@ function Art() {
   return (
     <div style={{ margin: 20 }}>
       <Segment attached="top">
-        <Header as="h2">{category.name}</Header>
+        <Header as="h2" style={{ fontSize: '3rem' }}>{category.name}</Header>
         <p>{category.description}</p>
       </Segment>
 
