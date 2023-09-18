@@ -21,6 +21,23 @@ img.artwork {
     margin-bottom: 1em;
 }
 
+.h1 {
+    font-family: @barbraFont;
+}
+
+.h2 {
+    font-family: @headerFont;
+}
+
+.h3 {
+    font-family: @pageFont;
+}
+
+#root > div > div.ui.container > h1, #root > div > div.container > div > div.ui.horizontal.segments > div:nth-child(1) > h1 {
+    font-family: @barbraFont;
+    font-size: 2.5rem;
+}
+
 
 .quizButton {
     width: 100px;
