@@ -19,8 +19,6 @@ function Art() {
     variables: {id: categoryId}
   });
 
-  console.log(categoryData);
-
   
   if (loading || categoryLoading) return (
     <Jumbotron size="huge"> Loading...</Jumbotron>
@@ -33,7 +31,7 @@ function Art() {
   return (
     <div style={{ margin: 20 }}>
       <Segment attached="top">
-        <Header as="h2">{category.name}</Header>
+        <Header as="h2" style={{ color: '#150020' }}>{category.name}</Header>
         <p>{category.description}</p>
       </Segment>
 

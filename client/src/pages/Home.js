@@ -15,34 +15,56 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <Container  >
+    <Container className="homePage-container" >
       
-        <h1  class="ui header orange centered" style={{'marginBottom': '2em', 'marginTop': '1em'}} >Welcome to Deco!</h1>
+        <h1  class="ui header orange centered" style={{'marginBottom': '2em'}} >Welcome to Deco!</h1>
      
      
-     <div class="ui stackable three column grid ">
+     <div class="ui stackable three column grid " style={{'box-shadow': '-9px 9px 18px -3px rgba(0,0,0,0.5)'}}>
      
-          <div class="column">
+          <div class="column" >
+          {loggedIn ? (
+            <h2 class="ui header purple centered" onClick={navigateProfile}> Take the Test </h2>
+          ) : (<h2 class="ui header purple centered" onClick={() => navigate("/login")}> Take the Test </h2>)}
+          <div >
+            {loggedIn ? (
+              <img class='ui small image centered' src='/images/easel.png' alt='easel icon' onClick={navigateProfile}></img>
+            ): (
+              <img class='ui small image centered' src='/images/easel.png' alt='easel icon' onClick={() => navigate("/login")}></img>
+            )}
           
-          <h2 class="ui header purple centered"> Take the Test </h2>
-          <div class='ui header centered'>
-          <i class="paint brush icon"></i>
           </div>
           <h3 class="ui header centered">Rate each image on a scale of 1 to 5 </h3>
           
           </div>
 
-        <div class="column">
-          <h2 class="ui header purple centered">Review Results  </h2>         
-          <div class='ui header centered'>
-          <i class="camera retro icon"></i>
+        <div class="column" >
+          
+          {loggedIn ? (<h2 class="ui header purple centered" onClick={() => navigate("/profile")}>Review Results  </h2>
+            ) : (
+          <h2 class="ui header purple centered" onClick={() => navigate("/login")}>Review Results  </h2>)}         
+          <div >
+            {loggedIn ? (
+              <img class='ui small image centered' src='/images/camera.png' alt='camera icon' onClick={() => navigate("/profile")}></img>
+            ) : (
+              <img class='ui small image centered' src='/images/camera.png' alt='camera icon' onClick={() => navigate("/login")}></img>
+            )}
+          
           </div>
           <h3 class="ui header centered">Head to your profile page to see your top three art styles </h3>
         </div>
-        <div class="column">
-          <h2 class="ui header purple centered">Use your Style!</h2>
-          <div class='ui header centered'>
-          <i class="image outline icon"></i>
+        <div class="column" >
+          {loggedIn ? (
+              <h2 class="ui header purple centered" onClick={() => navigate("/categories")}>Use your Style!</h2>
+            ) : (
+              <h2 class="ui header purple centered" onClick={() => navigate("/login")}>Use your Style!</h2>
+            )}
+          <div >
+            {loggedIn ? (
+              <img class='ui small image centered' src='/images/paintbrush.png' alt='paintbrush icon' onClick={() => navigate("/categories")}></img>
+            ) : (
+              <img class='ui small image centered' src='/images/paintbrush.png' alt='paintbrush icon' onClick={() => navigate("/login")}></img>
+            )}
           </div>
           <h3 class="ui header centered">Use your new found art styles to decorate</h3>
         </div>
@@ -67,3 +89,4 @@ const Home = () => {
 };
 
 export default Home;
+// test comment

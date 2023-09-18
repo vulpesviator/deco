@@ -29,13 +29,11 @@ useEffect(() => {
 
 }, [loading, data,])
 
-console.log(images)
   const currentImage = images[activeQuestion];
   function RatingSlider() {
     const [rating, setRating] = useState(1);
     const handleChange = (e) => {
       setRating( e.target.value );
-      console.log(rating);
 
       if(!e.target) {
         setDisabled(true);
@@ -82,17 +80,16 @@ console.log(images)
       <>
         <div>
           <Grid.Row style={{ textAlign: "center" }}>
-            <div>Your rating: {rating}</div>
+            <div style={{ fontFamily: 'Montserrat', fontWeight: '700', fontSize: '1rem' }}>Your rating: {rating}</div>
             <input
               type="range"
               min={1}
-              max={5}
+              max={10}
               value={rating}
-              ariaSetsize={8}
               onChange={handleChange}
             />
             <br />
-            <Rating icon="star" maxRating={5} rating={rating} />
+            <Rating icon="star" maxRating={10} rating={rating} />
           </Grid.Row>
         </div>
         <Grid.Row>
@@ -106,11 +103,18 @@ console.log(images)
 
   return (
     <Container>
+      <style>
+        {`
+        .ui.header:first-child {
+          margin-top: 1.5rem; 
+        }
+        `}
+      </style>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
-          <Header as="h3" textAlign="center">
+        <div className="quiz-container">
+          <Header as="h2" textAlign="center">
             <p> Rate the following Artworks</p>
           </Header>
 

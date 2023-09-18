@@ -7,3 +7,39 @@ img.artwork {
     -moz-box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
     box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
 }
+
+.quiz-container {
+    background: rgba(255,255,255,0.7);
+    border: 8px solid rgba(21,0,32,0.6);
+}
+
+.homePage-container {
+    background: rgba(255,255,255,0.4);
+    border: 8px solid rgba(21,0,32,0.6);
+    padding: 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.h1 {
+    font-family: @barbraFont;
+}
+
+.h2 {
+    font-family: @headerFont;
+}
+
+.h3 {
+    font-family: @pageFont;
+}
+
+#root > div > div.ui.container > h1, #root > div > div.container > div > div.ui.horizontal.segments > div:nth-child(1) > h1 {
+    font-family: @barbraFont;
+    font-size: 2.5rem;
+}
+
+
+.quizButton {
+    width: 100px;
+    height: 4em;
+}

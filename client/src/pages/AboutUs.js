@@ -32,15 +32,16 @@ const AboutUs = () => {
   </div>
   <div class="card">
     <div class="image">
-    <img ></img>
+    <img src='/images/travis.jpg' alt='Travis' ></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Travis Hoffman</div>
       <div class="meta">
-        <span class="date">Coworker</span>
+        <span class="date">Data Miner</span>
       </div>
       <div class="description">
-        Molly is a personal assistant living in Paris.
+      Considered his own favorite cryptid, this particular species is renowned for being peer-reviewed, snarky,
+            and his ability to make things pretty.
       </div>
     </div>
 
@@ -54,15 +55,14 @@ const AboutUs = () => {
   </div>
   <div class="card">
     <div class="image">
-      <img ></img>
+      <img src= '/images/Danny_485.jpeg' alt='A dashing man named Danny Wittig'></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Danny Wittig</div>
       <div class="meta">
-        <a>Coworker</a>
       </div>
       <div class="description">
-        Elyse is a copywriter working in New York.
+      How does one find the words to describe Danny Wittig. An innovator, a problem solver, a free thinker... these are just a few of the many descriptors attributed to him. If you were to ask him yourself, he would probably say he is just a humble kid from the east end of Pittsburgh, looking to make his place in the world. But the reality is, you could never really know Danny until you meet him, shake his hand, and let him tell you about his life.
       </div>
     </div>
     <div class="extra content">
@@ -75,15 +75,14 @@ const AboutUs = () => {
 
  <div class="card">
     <div class="image">
-      <img ></img>
+      <img src= '/images/hannah-avatar.png' alt='A black cat on a blue background, definitely the real Hannah'></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Hannah Wolfson</div>
       <div class="meta">
-        <a>Coworker</a>
       </div>
       <div class="description">
-        Elyse is a copywriter working in New York.
+        Chicago-based (but not Chicagopilled) coding bootcamp student/aspiring developer with a professional services background. Can most likely be found caught up in 1-2 crochet projects at any given time; don't ask me about my D&D characters if you value your time (and possibly sanity).
       </div>
     </div>
     <div class="extra content">
