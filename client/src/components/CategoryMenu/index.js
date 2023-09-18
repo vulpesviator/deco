@@ -29,7 +29,7 @@ function CategoryMenu() {
           minHeight: '200px' 
         }} />
           <Card.Content>
-          <Link to={`/art/${item._id}`} style={{ color: '#150020', fontSize: '1.5rem', fontWeight: '600' }}>
+          <Link to={`/art/${item._id}`} style={{ color: '#150020', fontWeight: '600' }}>
             <Card.Header as="h2" style={{ marginBottom: '.5rem' }}>{item.name}</Card.Header>
             </Link>
             <Card.Description style={{ 

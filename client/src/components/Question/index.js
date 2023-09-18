@@ -80,7 +80,7 @@ useEffect(() => {
       <>
         <div>
           <Grid.Row style={{ textAlign: "center" }}>
-            <div>Your rating: {rating}</div>
+            <div style={{ fontFamily: 'Montserrat', fontWeight: '700', fontSize: '1rem' }}>Your rating: {rating}</div>
             <input
               type="range"
               min={1}
@@ -114,7 +114,7 @@ useEffect(() => {
         <div>Loading...</div>
       ) : (
         <div className="quiz-container">
-          <Header as="h3" textAlign="center">
+          <Header as="h2" textAlign="center">
             <p> Rate the following Artworks</p>
           </Header>
 

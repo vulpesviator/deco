@@ -11,7 +11,8 @@
   src: url('../../../assets/Barbra-Regular.ttf') format('truetype');
 }
 
-@headerFont: 'Barbra', 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@barbraFont: 'Barbra', 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @pageFont: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @fontSmoothing     : antialiased;
 @importGoogleFonts : true;

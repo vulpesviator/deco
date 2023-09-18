@@ -13,3 +13,20 @@ img.artwork {
     border: 8px solid rgba(21,0,32,0.6);
 }
 
+.h1 {
+    font-family: @barbraFont;
+}
+
+.h2 {
+    font-family: @headerFont;
+}
+
+.h3 {
+    font-family: @pageFont;
+}
+
+#root > div > div.ui.container > h1, #root > div > div.container > div > div.ui.horizontal.segments > div:nth-child(1) > h1 {
+    font-family: @barbraFont;
+    font-size: 2.5rem;
+}
+

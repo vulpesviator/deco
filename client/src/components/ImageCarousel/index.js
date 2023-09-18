@@ -70,6 +70,10 @@ const ImageCarousel = ({ images }) => {
         .slick-slide img {
           margin: .5rem;
         }
+
+        .slick-prev:before, .slick-next:before { 
+          color: #925BFF !important;
+        }
         `}
       </style>
       <Slider {...settings}>

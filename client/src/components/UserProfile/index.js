@@ -61,6 +61,8 @@ function UserProfile() {
   }
   
 
+  
+
   const handleLogout = async (event) => {
     event.preventDefault();
     try {
