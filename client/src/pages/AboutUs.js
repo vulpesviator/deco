@@ -75,15 +75,14 @@ const AboutUs = () => {
 
  <div class="card">
     <div class="image">
-      <img ></img>
+      <img src= '/images/hannah-avatar.png' alt='A black cat on a blue background, definitely the real Hannah'></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Hannah Wolfson</div>
       <div class="meta">
-        <a>Coworker</a>
       </div>
       <div class="description">
-        Elyse is a copywriter working in New York.
+        Chicago-based (but not Chicagopilled) coding bootcamp student/aspiring developer with a professional services background. Can most likely be found caught up in 1-2 crochet projects at any given time; don't ask me about my D&D characters if you value your time (and possibly sanity).
       </div>
     </div>
     <div class="extra content">
