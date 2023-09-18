@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
     scoreCategory: String
     description: String
-    image: Image
+    image: String
   }
 
   type Image {
@@ -77,9 +77,11 @@ const typeDefs = gql`
     surrealism: Int
   }
 
+
   type Query {
     categories: [Category]
     category(_id: ID): Category
+    categoryImages(categoryId: ID!): [Image]
     images: [Image]
     image(_id: ID): Image
     user: User

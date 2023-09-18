@@ -23,7 +23,14 @@ export default function Nav() {
           >
             <Image src={Logo} alt="deco" height="50px"/>
           </Menu.Item>
+          
           <Menu.Menu position="right">
+          <Menu.Item 
+              name="AboutUs"
+              as={Link}
+              to="/AboutUs"
+            />
+
             <Menu.Item
               name="categories"
               as={Link}
@@ -51,6 +58,7 @@ export default function Nav() {
     } else {
       return (
         <>
+        
           <Menu.Item
             name="home"
             as={Link}
@@ -59,7 +67,13 @@ export default function Nav() {
             <img src={Logo} alt="" />
 
           </Menu.Item>
-          <Menu.Menu position="right">
+          <Menu.Item   position="right"
+              name="AboutUs"
+              as={Link}
+              to="/AboutUs"
+            />
+
+          <Menu.Menu>
             <Menu.Item
               name="categories"
               as={Link}
@@ -77,13 +91,6 @@ export default function Nav() {
               to="/login"
             >
               <Button className="primary">Log In</Button>
-            </Menu.Item>
-            <Menu.Item
-              name="quiz"
-              as={Link}
-              to="/quiz"
-            >
-              <Button className="secondary">Take the Test</Button>
             </Menu.Item>
           </Menu.Menu>
         </>

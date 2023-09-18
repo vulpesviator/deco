@@ -15,6 +15,7 @@ db.once('open', async () => {
             return { src, artist, category: categories.find(({name}) => name === category) }
         });
         await Image.insertMany(imageSeeds);
+        const images = await Image.find({});
         
         
         console.log('categories seeded!', 'images seeded!');

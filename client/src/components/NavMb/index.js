@@ -48,7 +48,7 @@ function NavMb({renderLinks}) {
         inverted
       >
         <Menu.Item>
-          <img src="deco.svg" width="35px" height="35px" alt="" />
+          <img src="/images/deco.png" width="35px" height="35px" alt="" />
         </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item onClick={toggleSidebar}>

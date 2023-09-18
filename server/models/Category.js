@@ -16,8 +16,7 @@ const categorySchema = new Schema({
     required: true,
   }, 
   image: {
-    type: Schema.Types.ObjectId,
-    ref: 'Image'
+    type: String
   }
 });
 
