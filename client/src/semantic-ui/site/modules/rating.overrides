@@ -9,7 +9,7 @@
 }
 
 .ui.star.rating {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .ui.star.rating .active.icon {
