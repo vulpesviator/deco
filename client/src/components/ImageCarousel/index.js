@@ -64,7 +64,7 @@ const ImageCarousel = ({ images }) => {
         }
 
         .slick-slide img {
-          margin: auto;
+          margin: .5rem auto;
         }
 
         .slick-prev:before, .slick-next:before { 
