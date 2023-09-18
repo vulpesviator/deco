@@ -6,7 +6,12 @@
      Fonts
 --------------------*/
 
-@headerFont: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'Barbra';
+  src: url('../../../assets/Barbra-Regular.ttf') format('truetype');
+}
+
+@headerFont: 'Barbra', 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @pageFont: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @fontSmoothing     : antialiased;
 @importGoogleFonts : true;

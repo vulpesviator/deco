@@ -63,8 +63,12 @@ const ImageCarousel = ({ images }) => {
           transition-timing-function: ease;
         }
 
+        .slick-slider.slick-initialized {
+          margin: .5rem;
+        }
+
         .slick-slide img {
-          margin: auto;
+          margin: .5rem;
         }
         `}
       </style>
