@@ -16,11 +16,24 @@ function CategoryMenu() {
       <>
       {categories.map((item) => (
         
-        <Card color={cardColor[0]} key={item.id}>
-          <Image src={item.image} wrapped ui={false} />
+        <Card 
+        color={cardColor[0]} 
+        key={item.id} 
+        
+      >
+        <Image style={{ 
+          position: 'relative', 
+          backgroundImage: `url(${item.image})`, 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center center', 
+          minHeight: '200px' 
+        }} />
           <Card.Content>
             <Card.Header>{item.name}</Card.Header>
-            <Card.Description>
+            <Card.Description style={{ 
+                maxHeight: '200px', 
+                overflowY: 'auto' 
+              }}>
               {item.description}
             </Card.Description>
           </Card.Content>
