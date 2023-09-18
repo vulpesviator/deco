@@ -15,6 +15,9 @@
 ## <span id="deployment">Preview:</span>
   <a href="https://deco-app-f64152d80c15.herokuapp.com/">Deployed Page</a>
 
+  ![Screenshot 2023-09-18 at 5 37 53 PM](https://github.com/vulpesviator/deco/assets/123843930/ef0596d5-ebfe-4db9-bfef-fb153a1a2e4c)
+
+
 ## <span id="license">License:</span>
   MIT License
 
