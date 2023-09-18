@@ -5,7 +5,7 @@ import { QUERY_CATEGORIES } from '../../utils/queries';
 import { Card, Icon, Image } from "semantic-ui-react";
 
 function CategoryMenu() {
-  const cardColor = ["orange", "yellow", "green", "teal", "blue", "violet", "purple", "pink", "brown"];
+  const cardColor = ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey"];
   
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
   
@@ -14,10 +14,10 @@ function CategoryMenu() {
   if(!loading){
     return (
       <>
-      {categories.map((item, index) => (
+      {categories.map((item) => (
         
         <Card 
-        color={cardColor[index % cardColor.length]} 
+        color={cardColor[0]} 
         key={item.id} 
         
       >
@@ -32,6 +32,7 @@ function CategoryMenu() {
           <Link to={`/art/${item._id}`} style={{ color: '#150020', fontWeight: '600' }}>
             <Card.Header as="h2" style={{ marginBottom: '.5rem' }}>{item.name}</Card.Header>
             </Link>
+
             <Card.Description style={{ 
                 maxHeight: '200px', 
                 overflowY: 'auto' 
@@ -40,7 +41,7 @@ function CategoryMenu() {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/art/${item._id}`} style={{ color: '#925BFF', fontWeight: '600' }}>
+            <Link to={`/art/${item._id}`}>
               <Icon name='th' />
               See more examples?
             </Link>

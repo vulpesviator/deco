@@ -9,8 +9,16 @@ img.artwork {
 }
 
 .quiz-container {
+    background: rgba(255,255,255,0.7);
+    border: 8px solid rgba(21,0,32,0.6);
+}
+
+.homePage-container {
     background: rgba(255,255,255,0.4);
     border: 8px solid rgba(21,0,32,0.6);
+    padding: 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .h1 {
@@ -30,3 +38,8 @@ img.artwork {
     font-size: 2.5rem;
 }
 
+
+.quizButton {
+    width: 100px;
+    height: 4em;
+}
