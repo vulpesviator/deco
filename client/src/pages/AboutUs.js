@@ -32,15 +32,16 @@ const AboutUs = () => {
   </div>
   <div class="card">
     <div class="image">
-    <img ></img>
+    <img src='/images/travis.jpg' alt='Travis' ></img>
     </div>
     <div class="content">
       <div class="ui header purple centered">Travis Hoffman</div>
       <div class="meta">
-        <span class="date">Coworker</span>
+        <span class="date">Data Miner</span>
       </div>
       <div class="description">
-        Molly is a personal assistant living in Paris.
+      Considered his own favorite cryptid, this particular species is renowned for being peer-reviewed, snarky,
+            and his ability to make things pretty.
       </div>
     </div>
 

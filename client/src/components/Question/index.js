@@ -84,13 +84,12 @@ useEffect(() => {
             <input
               type="range"
               min={1}
-              max={5}
+              max={10}
               value={rating}
-              ariaSetsize={8}
               onChange={handleChange}
             />
             <br />
-            <Rating icon="star" maxRating={5} rating={rating} />
+            <Rating icon="star" maxRating={10} rating={rating} />
           </Grid.Row>
         </div>
         <Grid.Row>
@@ -104,10 +103,17 @@ useEffect(() => {
 
   return (
     <Container>
+      <style>
+        {`
+        .ui.header:first-child {
+          margin-top: 1.5rem; 
+        }
+        `}
+      </style>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div className="quiz-container">
           <Header as="h3" textAlign="center">
             <p> Rate the following Artworks</p>
           </Header>

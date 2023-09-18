@@ -7,3 +7,9 @@ img.artwork {
     -moz-box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
     box-shadow: -9px 9px 18px -3px rgba(0,0,0,0.5);
 }
+
+.quiz-container {
+    background: rgba(255,255,255,0.4);
+    border: 8px solid rgba(21,0,32,0.6);
+}
+
